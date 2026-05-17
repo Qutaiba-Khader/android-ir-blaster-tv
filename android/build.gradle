@@ -12,6 +12,24 @@ subprojects {
 subprojects {
     project.evaluationDependsOn(':app')
 }
+subprojects { subproject ->
+    def forceCompileSdk = {
+        if (subproject.hasProperty("android")) {
+            subproject.android {
+                compileSdkVersion 36
+            }
+        }
+    }
+    subproject.plugins.withId("com.android.application") { forceCompileSdk() }
+    subproject.plugins.withId("com.android.library") { forceCompileSdk() }
+    if (subproject.state.executed) {
+        forceCompileSdk()
+    } else {
+        subproject.afterEvaluate {
+            forceCompileSdk()
+        }
+    }
+}
 
 tasks.register("clean", Delete) {
     delete rootProject.buildDir

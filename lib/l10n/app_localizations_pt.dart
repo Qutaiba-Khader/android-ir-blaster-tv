@@ -101,7 +101,7 @@ class AppLocalizationsPt extends AppLocalizations {
       'Dongle USB autorizado, mas a inicialização falhou.';
 
   @override
-  String get homeHardwareBannerReady => 'USB está listo.';
+  String get homeHardwareBannerReady => 'USB está pronto.';
 
   @override
   String get homeHardwareRequiredTitle =>
@@ -465,7 +465,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get languageFrenchShort => 'Francês';
 
   @override
-  String get useDynamicColors => 'Usar colores dinámicos';
+  String get useDynamicColors => 'Usar cores dinâmicas';
 
   @override
   String get themeChoiceAuto => 'Auto';
@@ -870,7 +870,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get exportBackupSubtitle =>
-      'Guardar comandos + macros como un JSON en Descargas';
+      'Guardar comandos + macros como um JSON em Transferências';
 
   @override
   String get restoreDemoRemotes => 'Restaurar comandos de demonstração';
@@ -1020,7 +1020,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get usbStatusNoDevice =>
-      'Não foi detetado un dongle IR USB compatível.';
+      'Não foi detetado nenhum dongle IR USB compatível.';
 
   @override
   String get usbSelectPermissionRequired =>
@@ -1066,7 +1066,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get audioModeEnabledMessage =>
-      'Modo áudio ativado. Usa o volume multimedia ao máximo e un adaptador LED de áudio a IR.';
+      'Modo áudio ativado. Use o volume multimédia no máximo e um adaptador LED de áudio para IR.';
 
   @override
   String get usbPermissionRequestSent => 'Solicitud de permissão USB enviada.';
@@ -1088,15 +1088,15 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get transmitterHelpUsb =>
-      'Usa un dongle IR USB (requiere permissão) para enviar comandos.';
+      'Usa um dongle IR USB (requer permissão) para enviar comandos.';
 
   @override
   String get transmitterHelpAudio1 =>
-      'Usa a saída de áudio (mono). Requiere un adaptador LED de áudio a IR e volume multimedia alto.';
+      'Usa a saída de áudio (mono). Requer um adaptador LED de áudio para IR e volume multimédia alto.';
 
   @override
   String get transmitterHelpAudio2 =>
-      'Usa a saída de áudio (estéreo). Usa dos canales para un melhor control LED con adaptadores compatíveis.';
+      'Usa a saída de áudio (estéreo). Usa dois canais para melhor controlo do LED com adaptadores compatíveis.';
 
   @override
   String get transmitterInternal => 'IR interno';
@@ -1136,7 +1136,7 @@ class AppLocalizationsPt extends AppLocalizations {
       'Usa USB quando está ligado, caso contrário Interno';
 
   @override
-  String get unavailableOnThisDevice => 'Não disponible en este dispositivo';
+  String get unavailableOnThisDevice => 'Não disponível neste dispositivo';
 
   @override
   String get openOnUsbAttachTitle => 'Abrir ao ligar USB';
@@ -1160,7 +1160,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get unnamedButton => 'Botão sem nome';
 
   @override
-  String get iconFallback => 'Icono';
+  String get iconFallback => 'Ícone';
 
   @override
   String get remoteListReorderHint =>
@@ -1192,11 +1192,12 @@ class AppLocalizationsPt extends AppLocalizations {
   String get add => 'Adicionar';
 
   @override
-  String get addedToDeviceControls => 'Añadido a Controlos do dispositivo.';
+  String get addedToDeviceControls =>
+      'Adicionado aos Controlos do dispositivo.';
 
   @override
   String deletedRemoteUndoUnavailable(Object name) {
-    return 'Foi eliminado \"$name\". Esta acción não pode ser anulado.';
+    return 'Foi eliminado \"$name\". Esta ação não pode ser anulada.';
   }
 
   @override
@@ -1220,7 +1221,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get edit => 'Editar';
 
   @override
-  String get editRemoteSubtitle => 'Renombrar e editar botões';
+  String get editRemoteSubtitle => 'Renomear e editar botões';
 
   @override
   String get thisCannotBeUndone => 'Isto não pode ser anulado';
@@ -1256,14 +1257,14 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get noRemotesDescription =>
-      'Crea un comando para empezar a enviar códigos IR.';
+      'Crie um comando para começar a enviar códigos IR.';
 
   @override
   String get noRemotesNextStep =>
       'Seguinte passo: toque em Adicionar comando e depois adicione os seus primeiros botões.';
 
   @override
-  String get actions => 'Acciones';
+  String get actions => 'Ações';
 
   @override
   String get macrosTitle => 'Macros';
@@ -1290,14 +1291,14 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get macroFeatureToysDescription =>
-      'Controla dispositivos como perros robô i-cybie, robôs i-sobot e otros brinquedos que precisan tiempo entre comandos para procesar acciones.';
+      'Controla dispositivos como cães robôs i-cybie, robôs i-sobot e outros brinquedos que precisam de tempo entre comandos para processar ações.';
 
   @override
-  String get macroFeatureTimingTitle => 'Control preciso do tiempo';
+  String get macroFeatureTimingTitle => 'Controlo preciso do tempo';
 
   @override
   String get macroFeatureTimingDescription =>
-      'Adicione pausas entre comandos (de 250 ms a duraciones personalizadas) para que o seu dispositivo responda antes de a seguinte acción.';
+      'Adicione pausas entre comandos (de 250 ms até durações personalizadas) para que o dispositivo responda antes da próxima ação.';
 
   @override
   String get macroFeatureManualTitle => 'Passos con continuación manual';
@@ -1307,14 +1308,14 @@ class AppLocalizationsPt extends AppLocalizations {
       'Pausa a execução e espera o seu confirmación quando a animación varía o precisas confirmación visual.';
 
   @override
-  String get exampleUseCase => 'Ejemplo de uso';
+  String get exampleUseCase => 'Exemplo de uso';
 
   @override
   String get macroExampleText =>
-      'Modo avanzado de i-cybie:\n1. Enviar comando \"Mode\"\n2. Aguardar 1000 ms (el juguete procesa)\n3. Enviar \"Action 1\"\n4. Aguardar 1000 ms\n5. Enviar \"Action 2\"\n…y así sucesivamente de forma automática.';
+      'Modo avançado do i-cybie:\n1. Enviar comando \"Mode\"\n2. Aguardar 1000 ms (o brinquedo processa)\n3. Enviar \"Action 1\"\n4. Aguardar 1000 ms\n5. Enviar \"Action 2\"\n...e assim sucessivamente de forma automática.';
 
   @override
-  String get createFirstMacro => 'Crea o seu primeira macro';
+  String get createFirstMacro => 'Crie a sua primeira macro';
 
   @override
   String get noRemote => 'Sem comando';
@@ -1342,7 +1343,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get sendCommandDescription =>
-      'Transmite un comando IR de o seu comando.';
+      'Transmite um comando IR do seu comando.';
 
   @override
   String get delay => 'Pausa';
@@ -1356,7 +1357,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get manualContinueDescription =>
-      'Pausa a execução hasta que toques Continuar (útil para animaciones de duración variable).';
+      'Pausa a execução até tocar em Continuar (útil para animações de duração variável).';
 
   @override
   String get gotIt => 'Entendido';
@@ -1379,10 +1380,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get deleteMacroTitle => 'Eliminar macro?';
 
   @override
-  String get deleteMacroMessage => 'Pode anular isto desde o próximo mensaje.';
+  String get deleteMacroMessage => 'Pode anular isto na próxima mensagem.';
 
   @override
-  String get noRemotesAvailable => 'Ainda não há comandos disponibles.';
+  String get noRemotesAvailable => 'Ainda não há comandos disponíveis.';
 
   @override
   String remoteButtonCountSummary(int count) {
@@ -1405,7 +1406,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get remoteReorderHint =>
-      'Modo reordenar: mantenha premido e arraste un botão para moverlo.';
+      'Modo de reordenação: mantenha premido e arraste um botão para movê-lo.';
 
   @override
   String get manageRemote => 'Gerir comando';
@@ -1421,8 +1422,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get editRemote => 'Editar comando';
 
   @override
-  String get editRemoteActionsSubtitle =>
-      'Renombrar, reordenar e editar botões';
+  String get editRemoteActionsSubtitle => 'Renomear, reordenar e editar botões';
 
   @override
   String remoteUpdatedNamedButton(Object name) {
@@ -1441,7 +1441,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get loopRunningForButton => 'O ciclo está ativo para este botão.';
 
   @override
-  String get loopTip => 'Dica: usa Ciclo para repetir hasta detenerlo.';
+  String get loopTip => 'Dica: use Ciclo para repetir até parar.';
 
   @override
   String get loopingBadge => 'Looping';
@@ -1479,11 +1479,11 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get deviceControlsButtonSubtitle =>
-      'Muestra este botão en os controlos do dispositivo do sistema';
+      'Mostra este botão nos controlos do dispositivo do sistema';
 
   @override
   String get removedFromDeviceControls =>
-      'Quitado de Controlos do dispositivo.';
+      'Removido dos Controlos do dispositivo.';
 
   @override
   String get pinQuickTile => 'Fixar nos favoritos dos mosaicos rápidos';
@@ -1546,7 +1546,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String importedButtonsFromExistingRemotes(int count) {
-    return 'Foram importados $count botão(es) desde comandos existentes.';
+    return 'Foram importados $count botão(ões) de comandos existentes.';
   }
 
   @override
@@ -1562,10 +1562,10 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get undoAvailableInNextSnackbar =>
-      'Pode deshacerlo desde o próximo mensaje';
+      'Pode desfazer isto na próxima mensagem';
 
   @override
-  String get buttonRemoved => 'Botão quitado.';
+  String get buttonRemoved => 'Botão removido.';
 
   @override
   String get remoteNameCannotBeEmpty =>
@@ -1593,10 +1593,10 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get layoutCompactDescription =>
-      'Compacto: grelha clásica 4× (apenas iconos/texto).';
+      'Compacto: grelha clássica 4x (apenas ícones/texto).';
 
   @override
-  String get importFromRemotes => 'Importar desde comandos';
+  String get importFromRemotes => 'Importar de comandos';
 
   @override
   String get importFromDatabase => 'Importar de BD';
@@ -1609,7 +1609,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get createRemoteEmptyStateDescription =>
-      'Adicione o seu primeiro botão e luego mantenha premido para editar o remover.';
+      'Adicione o seu primeiro botão e depois mantenha premido para editar ou remover.';
 
   @override
   String get createButtonTitle => 'Criar botão';
@@ -1644,21 +1644,21 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get completeRequiredFieldsToSave =>
-      'Completa os campos obrigatórios para guardar';
+      'Preencha os campos obrigatórios para guardar';
 
   @override
   String get buttonLabelStepTitle => 'Etiqueta do botão';
 
   @override
   String get buttonLabelStepSubtitle =>
-      'Escolha uma imagem, un icono o escreva uma etiqueta.';
+      'Escolha uma imagem, um ícone ou escreva uma etiqueta.';
 
   @override
   String get buttonColorStepTitle => 'Cor do botão';
 
   @override
   String get buttonColorStepSubtitle =>
-      'Escolha un cor de fondo para este botão.';
+      'Escolha uma cor de fundo para este botão.';
 
   @override
   String get selectColor => 'Selecione cor:';
@@ -1677,23 +1677,23 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get requiredSelectImageOrSwitch =>
-      'Obligatorio: selecione uma imagem, escolha un icono o cambia a Texto.';
+      'Obrigatório: selecione uma imagem, escolha um ícone ou mude para Texto.';
 
   @override
-  String get iconSelected => 'Icono selecionado';
+  String get iconSelected => 'Ícone selecionado';
 
   @override
-  String get noIconSelected => 'Não há icono selecionado';
+  String get noIconSelected => 'Nenhum ícone selecionado';
 
   @override
-  String get chooseIcon => 'Escolher icono';
+  String get chooseIcon => 'Escolher ícone';
 
   @override
-  String get removeIcon => 'Remover icono';
+  String get removeIcon => 'Remover ícone';
 
   @override
   String get requiredSelectIconOrSwitch =>
-      'Obligatorio: selecione un icono o cambia a Imagem/Texto.';
+      'Obrigatório: selecione um ícone ou mude para Imagem/Texto.';
 
   @override
   String get buttonText => 'Texto do botão';
@@ -1705,14 +1705,14 @@ class AppLocalizationsPt extends AppLocalizations {
   String get buttonTextHelper => 'Este texto aparecerá en o botão.';
 
   @override
-  String get requiredEnterButtonLabel => 'Obligatorio: introduza uma etiqueta.';
+  String get requiredEnterButtonLabel => 'Obrigatório: introduza uma etiqueta.';
 
   @override
   String get defaultColorName => 'Predeterminado';
 
   @override
   String get newRemoteCreatedFromLastHit =>
-      'Foi criado un comando novo con un botão do último acierto.';
+      'Foi criado um comando novo com um botão do último acerto.';
 
   @override
   String get selectRemote => 'Selecionar comando';
@@ -1733,7 +1733,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String addedToRemoteNamed(Object name) {
-    return 'Añadido a $name.';
+    return 'Adicionado a $name.';
   }
 
   @override
@@ -1744,7 +1744,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String jumpedToOffsetPaused(int offset) {
-    return 'Saltó ao deslocação $offset. En pausa, pulsa Retomar para seguir.';
+    return 'Saltou para o deslocamento $offset. Em pausa, prima Retomar para continuar.';
   }
 
   @override
@@ -1759,7 +1759,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get copiedProtocolCode => 'Copiado (protocolo:código).';
 
   @override
-  String get savedToResults => 'Guardado en Resultados.';
+  String get savedToResults => 'Guardado em Resultados.';
 
   @override
   String invalidCodeForProtocol(Object error) {
@@ -1780,7 +1780,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String jumpedToCursorPaused(Object cursor) {
-    return 'Saltó ao cursor 0x$cursor. En pausa, pulsa Retomar para seguir.';
+    return 'Saltou para o cursor 0x$cursor. Em pausa, prima Retomar para continuar.';
   }
 
   @override
@@ -1810,7 +1810,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get deviceControlsEmptyHint =>
-      'Mantenha premido un botão do comando e selecione \"Adicionar a Controlos do dispositivo\".';
+      'Mantenha premido um botão do comando e selecione \"Adicionar aos Controlos do dispositivo\".';
 
   @override
   String get sendTest => 'Enviar teste';
@@ -1870,7 +1870,7 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String get pickDifferentButton => 'Escolha un botão distinto';
+  String get pickDifferentButton => 'Escolha um botão diferente';
 
   @override
   String get browseAllRemotesEllipsis => 'Explorar todos os comandos…';
@@ -1900,7 +1900,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get databaseModeAutofillHint =>
-      'El modo Base de dados completa o Passo 2 por ti (marca + modelo + protocolo). Tras importar uma tecla, pode ajustar tudo en Manual.';
+      'O modo Base de dados preenche o Passo 2 por si (marca + modelo + protocolo). Depois de importar uma tecla, pode ajustar tudo em Manual.';
 
   @override
   String get test => 'Teste';
@@ -1910,7 +1910,7 @@ class AppLocalizationsPt extends AppLocalizations {
       'Todos os botões elegidos eran duplicados.';
 
   @override
-  String get noButtonsImported => 'Não se importó nenhum botão.';
+  String get noButtonsImported => 'Nenhum botão foi importado.';
 
   @override
   String importedButtonsSkippedDuplicates(int addedCount, int skippedCount) {
@@ -1923,11 +1923,11 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get noMatchingKeysFound =>
-      'Não se encontraron teclas correspondentes.';
+      'Não foram encontradas teclas correspondentes.';
 
   @override
   String importAllMatchingMessage(int count) {
-    return 'Isto importará hasta $count teclas correspondentes de a seleção atual de a base de dados.';
+    return 'Isto importará até $count teclas correspondentes da seleção atual da base de dados.';
   }
 
   @override
@@ -1944,14 +1944,14 @@ class AppLocalizationsPt extends AppLocalizations {
   String get quickPresets => 'Definições rápidas';
 
   @override
-  String get selectDeviceFirst => 'Selecione primeiroo un dispositivo';
+  String get selectDeviceFirst => 'Selecione primeiro um dispositivo';
 
   @override
   String get searchByLabelOrHex => 'Pesquisar por etiqueta o hex';
 
   @override
   String optionalRefinePresetKeys(Object preset) {
-    return 'Opcional: afina as teclas predefinidas de $preset';
+    return 'Opcional: refine as teclas predefinidas de $preset';
   }
 
   @override
@@ -1963,7 +1963,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get importFromDatabaseSubtitle =>
-      'Escolha un dispositivo, carga as teclas correspondentes e luego importa os botões selecionados.';
+      'Escolha um dispositivo, carregue as teclas correspondentes e depois importe os botões selecionados.';
 
   @override
   String get deviceAndFilters => 'Dispositivo e filtros';
@@ -1981,25 +1981,25 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get noProtocolFoundForBrandModel =>
-      'Não se encontró un protocolo para esta marca e modelo.';
+      'Não foi encontrado nenhum protocolo para esta marca e modelo.';
 
   @override
   String get protocolAutoDetected => 'Protocolo';
 
   @override
   String get protocolAutoDetectedHelper =>
-      'Detetado automaticamente desde a base de dados. Pode cambiarlo antes de importar.';
+      'Detetado automaticamente na base de dados. Pode alterá-lo antes de importar.';
 
   @override
   String get selectBrandModelToLoadKeys =>
       'Selecione uma marca, modelo e protocolo para carregar teclas.';
 
   @override
-  String get noKeysFound => 'Não se encontraron teclas.';
+  String get noKeysFound => 'Não foram encontradas teclas.';
 
   @override
   String noKeysFoundForSearch(Object query) {
-    return 'Não se encontraron teclas para \"$query\".';
+    return 'Não foram encontradas teclas para \"$query\".';
   }
 
   @override
@@ -2013,7 +2013,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get importSelected => 'Importar selecionados';
 
   @override
-  String get noMacrosToExport => 'Não há macros para exporter.';
+  String get noMacrosToExport => 'Não há macros para exportar.';
 
   @override
   String get macrosExportedToDownloads => 'Macros exportedas a Descargas.';
@@ -2026,7 +2026,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get importFromExistingRemotesTitle =>
-      'Importar desde comandos existentes';
+      'Importar de comandos existentes';
 
   @override
   String selectedCount(int count) {
@@ -2035,7 +2035,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get noOtherRemotesWithButtons =>
-      'Não se encontraron otros comandos con botões.';
+      'Não foram encontrados outros comandos com botões.';
 
   @override
   String get sourceRemote => 'Comando origen';
@@ -2082,7 +2082,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String importedLegacyJsonBackup(int count) {
-    return 'Foram importados $count comandos de uma cópia JSON antigua. Las macros não cambiaron.';
+    return 'Foram importados $count comandos de uma cópia JSON antiga. As macros não foram alteradas.';
   }
 
   @override
@@ -2095,11 +2095,11 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get importFailedInvalidBackupFormat =>
-      'Importação falhada: formato de cópia não válido (se esperaba uma List antigua o un Map con remotes/macros).';
+      'Falha na importação: formato de cópia inválido (era esperada uma lista antiga ou um mapa com remotes/macros).';
 
   @override
   String importedBackupRemotesOnly(int remoteCount) {
-    return 'Foram importados $remoteCount comandos de a cópia. Las macros não cambiaron.';
+    return 'Foram importados $remoteCount comandos da cópia. As macros não foram alteradas.';
   }
 
   @override
@@ -2113,7 +2113,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromFlipper =>
-      'Se importó 1 comando desde Flipper.ir. Las macros não cambiaron.';
+      'Foi importado 1 comando de Flipper.ir. As macros não foram alteradas.';
 
   @override
   String get importFailedInvalidIrplus =>
@@ -2121,7 +2121,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromIrplus =>
-      'Se importó 1 comando desde irplus. Las macros não cambiaron.';
+      'Foi importado 1 comando de irplus. As macros não foram alteradas.';
 
   @override
   String get importFailedInvalidLirc =>
@@ -2129,11 +2129,11 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromLirc =>
-      'Se importó 1 comando desde uma config LIRC. Las macros não cambiaron.';
+      'Foi importado 1 comando de uma configuração LIRC. As macros não foram alteradas.';
 
   @override
   String get unsupportedFileTypeSelected =>
-      'Se seleccionó un tipo de ficheiro não compatível.';
+      'Foi selecionado um tipo de ficheiro não compatível.';
 
   @override
   String get importFailedInvalidUnreadableFile =>
@@ -2178,7 +2178,7 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String get invalidStepEncountered => 'Se encontró un passo não válido';
+  String get invalidStepEncountered => 'Foi encontrado um passo inválido';
 
   @override
   String failedToSendNamed(Object name) {
@@ -2213,11 +2213,11 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get orientationFlippedTooltip =>
-      'Orientación: invertida (toca para normal)';
+      'Orientação: invertida (toque para normal)';
 
   @override
   String get orientationNormalTooltip =>
-      'Orientación: normal (toca para inverter)';
+      'Orientação: normal (toque para inverter)';
 
   @override
   String get noSteps => 'Sem passos';
@@ -2231,13 +2231,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String get completed => 'Completado';
 
   @override
-  String get paused => 'En pausa';
+  String get paused => 'Em pausa';
 
   @override
   String get running => 'En curso';
 
   @override
-  String get ready => 'Listo';
+  String get ready => 'Pronto';
 
   @override
   String stepsProgress(int current, int total) {
@@ -2259,7 +2259,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get tapContinueWhenReady =>
-      'Toca Continuar quando estés listo para o seguinte passo';
+      'Toque em Continuar quando estiver pronto para o passo seguinte';
 
   @override
   String get error => 'Error';
@@ -2293,22 +2293,22 @@ class AppLocalizationsPt extends AppLocalizations {
   String get unnamedRemote => 'Unnamed Comando';
 
   @override
-  String get enterMacroName => 'Introduza un nome para a macro';
+  String get enterMacroName => 'Introduza um nome para a macro';
 
   @override
-  String get addAtLeastOneStep => 'Adicione ao menos un passo';
+  String get addAtLeastOneStep => 'Adicione pelo menos um passo';
 
   @override
   String get fixInvalidSteps => 'Corrige os passos não válidos';
 
   @override
-  String get unknownCommand => 'Desconhecido Command';
+  String get unknownCommand => 'Comando desconhecido';
 
   @override
   String get unnamedCommand => 'Comando sem nome';
 
   @override
-  String get iconCommand => 'Comando de icono';
+  String get iconCommand => 'Comando de ícone';
 
   @override
   String get selectDelay => 'Selecionar Delay';
@@ -2349,7 +2349,7 @@ class AppLocalizationsPt extends AppLocalizations {
       'Recommended: 250-5000ms for most dispositivos';
 
   @override
-  String get enterValidPositiveNumber => 'Introduza un número positivo válido';
+  String get enterValidPositiveNumber => 'Introduza um número positivo válido';
 
   @override
   String get ok => 'OK';
@@ -2380,7 +2380,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get reorderStepsHint =>
-      'Dica: arraste o asa para reordenar passos. Toca un passo para editarlo.';
+      'Dica: arraste a pega para reordenar passos. Toque num passo para editá-lo.';
 
   @override
   String reorderStep(int index) {
@@ -2397,7 +2397,7 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String get invalidStepTapToFix => 'Passo não válido - toca para corregir';
+  String get invalidStepTapToFix => 'Passo inválido - toque para corrigir';
 
   @override
   String get sendIrCommand => 'Enviar comando IR';
@@ -2483,18 +2483,18 @@ class AppLocalizationsPt extends AppLocalizations {
   String get addToRemote => 'Adicionar ao comando';
 
   @override
-  String get noDescriptionAvailable => 'Não há descripción disponible.';
+  String get noDescriptionAvailable => 'Nenhuma descrição disponível.';
 
   @override
   String get notAvailableSymbol => '-';
 
   @override
   String get irFinderKaseikyoVendorInvalid =>
-      'El proveedor Kaseikyo deve tener exactamente 4 dígitos hex.';
+      'O fornecedor Kaseikyo deve ter exatamente 4 dígitos hexadecimais.';
 
   @override
   String get irFinderDatabaseNotReady =>
-      'La base de dados ainda não está lista.';
+      'A base de dados ainda não está pronta.';
 
   @override
   String get irFinderSelectBrandFirst =>
@@ -2502,10 +2502,10 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get irFinderBruteforceUnavailable =>
-      'La força bruta ainda não está disponible para este protocolo.';
+      'A força bruta ainda não está disponível para este protocolo.';
 
   @override
-  String get irFinderInvalidPrefix => 'Prefijo não válido.';
+  String get irFinderInvalidPrefix => 'Prefixo inválido.';
 
   @override
   String irFinderBrandValue(Object value) {
@@ -2529,17 +2529,17 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get irFinderJumpOffsetHelper =>
-      'Introduza un índice base 0 dentro de os resultados filtrados e ordenados.';
+      'Introduza um índice base 0 dentro dos resultados filtrados e ordenados.';
 
   @override
   String get irFinderJumpCursorHelper =>
-      'Introduza un cursor hex base 0 dentro do espaço de força bruta.';
+      'Introduza um cursor hexadecimal base 0 dentro do espaço de força bruta.';
 
   @override
   String get irFinderSetupTab => 'Configuração';
 
   @override
-  String get irFinderTestTab => 'Probar';
+  String get irFinderTestTab => 'Testar';
 
   @override
   String get irFinderResultsTab => 'Resultados';
@@ -2561,7 +2561,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get irFinderNoSavedHits =>
-      'Ainda não há aciertos guardados. En a página Teste, pulsa \"Guardar acierto\" quando o dispositivo responda.';
+      'Ainda não há acertos guardados. Na página Teste, prima \"Guardar acerto\" quando o dispositivo responder.';
 
   @override
   String get irFinderBackToTest => 'Voltar a Teste';
@@ -2571,17 +2571,17 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String irFinderLargeSearchSpaceBody(Object human) {
-    return 'Este espaço de força bruta es muy grande ($human posibilidades). IR Finder respetará os seus intentos máximos e a espera, mas evita saturar dispositivos IR.\n\nRecomendación: usa primeiroo o modo Base de dados y/o introduza bytes de prefijo conocidos para reducir o espaço.';
+    return 'Este espaço de força bruta é muito grande ($human possibilidades). O IR Finder respeitará as suas tentativas máximas e a espera, mas evite saturar dispositivos IR.\n\nRecomendação: use primeiro o modo Base de dados e/ou introduza bytes de prefixo conhecidos para reduzir o espaço.';
   }
 
   @override
-  String get irFinderDatabaseSession => 'Sesión de base de dados';
+  String get irFinderDatabaseSession => 'Sessão da base de dados';
 
   @override
-  String get irFinderBruteforceSession => 'Sesión de força bruta';
+  String get irFinderBruteforceSession => 'Sessão de força bruta';
 
   @override
-  String get irFinderResumeLastSession => 'Retomar última sesión';
+  String get irFinderResumeLastSession => 'Retomar última sessão';
 
   @override
   String irFinderResumeBrandModel(Object brand, Object model) {
@@ -2590,7 +2590,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String irFinderResumePrefix(Object value) {
-    return 'Prefijo: $value';
+    return 'Prefixo: $value';
   }
 
   @override
@@ -2621,7 +2621,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get irFinderKnownPrefixLabel =>
-      'Prefijo conocido (bytes hex, opcional)';
+      'Prefixo conhecido (bytes hexadecimais, opcional)';
 
   @override
   String get irFinderKnownPrefixHint => 'A1B2, A1 B2, A1:B2, 0xA1 0xB2';
@@ -2633,23 +2633,23 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String irFinderKnownPrefixHelperPayloadExample(int digits, Object example) {
-    return 'Carga: $digits dígito(s) hex · Ejemplo: $example';
+    return 'Carga: $digits dígito(s) hexadecimais · Exemplo: $example';
   }
 
   @override
   String irFinderKnownPrefixHelperPayloadMax(int digits, int bytes) {
-    return 'Carga: $digits dígito(s) hex · Prefijo máx.: $bytes byte(s)';
+    return 'Carga: $digits dígito(s) hexadecimais · Prefixo máx.: $bytes byte(s)';
   }
 
   @override
   String irFinderKnownPrefixHelperPayloadExampleMax(
       int digits, Object example, int bytes) {
-    return 'Carga: $digits dígito(s) hex · Ejemplo: $example · Prefijo máx.: $bytes byte(s)';
+    return 'Carga: $digits dígito(s) hexadecimais · Exemplo: $example · Prefixo máx.: $bytes byte(s)';
   }
 
   @override
   String irFinderKnownPrefixHelperExample(Object example) {
-    return 'Ejemplo: $example';
+    return 'Exemplo: $example';
   }
 
   @override
@@ -2661,15 +2661,15 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String irFinderNormalizedPrefixValue(Object value) {
-    return 'Prefijo normalizado: $value';
+    return 'Prefixo normalizado: $value';
   }
 
   @override
-  String get irFinderNormalizedPrefix => 'Prefijo normalizado';
+  String get irFinderNormalizedPrefix => 'Prefixo normalizado';
 
   @override
   String get irFinderBruteforceNotConfigured =>
-      'La força bruta ainda não está configurada para este protocolo.';
+      'A força bruta ainda não está configurada para este protocolo.';
 
   @override
   String irFinderAllLimit(Object value) {
@@ -2686,25 +2686,25 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String irFinderSearchSpace(Object value) {
-    return 'Espaço de pesquisa: $value posibilidades (tras as restricciones do prefijo).';
+    return 'Espaço de pesquisa: $value possibilidades (após as restrições do prefixo).';
   }
 
   @override
   String get irFinderCooldownMs => 'Espera (ms)';
 
   @override
-  String get irFinderMaxAttemptsPerRun => 'Intentos máx. (por execução)';
+  String get irFinderMaxAttemptsPerRun => 'Máx. de tentativas por execução';
 
   @override
-  String get irFinderTestAllCombinations => 'Probar todas as combinaciones';
+  String get irFinderTestAllCombinations => 'Testar todas as combinações';
 
   @override
   String irFinderTestAllCombinationsHint(Object value) {
-    return 'Se ejecuta hasta agotar o espaço de pesquisa. Límite efectivo: $value';
+    return 'Executa até esgotar o espaço de pesquisa. Limite efetivo: $value';
   }
 
   @override
-  String get irFinderAttempts => 'Intentos';
+  String get irFinderAttempts => 'Tentativas';
 
   @override
   String irFinderAttemptsSliderRange(int max) {
@@ -2723,7 +2723,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get irFinderBruteforceTip =>
-      'Dica: usa primeiroo o modo Base de dados; a força bruta va melhor con un prefijo conocido (por ejemplo, os primeiroos 1–4 bytes).';
+      'Dica: use primeiro o modo Base de dados; a força bruta funciona melhor com um prefixo conhecido (por exemplo, os primeiros 1 a 4 bytes).';
 
   @override
   String get irFinderDatabaseInitFailed =>
@@ -2750,24 +2750,24 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get irFinderSelectModelRecommended =>
-      'Selecione un modelo (recomendado)';
+      'Selecione um modelo (recomendado)';
 
   @override
   String get irFinderOnlySelectedProtocol => 'Apenas protocolo selecionado';
 
   @override
   String get irFinderOnlySelectedProtocolHint =>
-      'Filtra as teclas ao protocolo escolhido. Desactívalo para ver todos os protocolos.';
+      'Filtra as teclas pelo protocolo escolhido. Desative para ver todos os protocolos.';
 
   @override
-  String get irFinderQuickWinsFirst => 'Aciertos rápidos primeiroo';
+  String get irFinderQuickWinsFirst => 'Acertos rápidos primeiro';
 
   @override
   String get irFinderQuickWinsFirstHint =>
-      'Prioriza teclas tipo POWER, MUTE, VOL e CH antes que otras mais profundas.';
+      'Prioriza teclas como POWER, MUTE, VOL e CH antes de outras mais profundas.';
 
   @override
-  String get irFinderMaxKeysPerRun => 'Teclas máx. a probar (por execução)';
+  String get irFinderMaxKeysPerRun => 'Máx. de teclas a testar por execução';
 
   @override
   String get irFinderTesting => 'Probando…';
@@ -2791,7 +2791,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get irFinderJump => 'Saltar…';
 
   @override
-  String get irFinderSaveHit => 'Guardar acierto';
+  String get irFinderSaveHit => 'Guardar acerto';
 
   @override
   String irFinderEtaSeconds(int seconds) {
@@ -2838,7 +2838,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get irFinderResultsNote =>
-      'Los resultados permiten Probar e Copiar ao instante. La integración directa para adicionar ao comando pode ampliarse luego en o editor.';
+      'Os resultados permitem Testar e Copiar imediatamente. A integração direta para adicionar ao comando pode ser ampliada depois no editor.';
 
   @override
   String get irFinderBrowseDbCandidatesTitle => 'Explorar candidatos de BD';
@@ -2859,17 +2859,17 @@ class AppLocalizationsPt extends AppLocalizations {
   String get irFinderSearchModels => 'Pesquisar modelos…';
 
   @override
-  String get iconPickerTitle => 'Selecionar icono';
+  String get iconPickerTitle => 'Selecionar ícone';
 
   @override
-  String get iconPickerSearchHint => 'Pesquisar iconos..';
+  String get iconPickerSearchHint => 'Pesquisar ícones...';
 
   @override
-  String get iconPickerNoIconsFound => 'Não se encontraron iconos';
+  String get iconPickerNoIconsFound => 'Não foram encontrados ícones';
 
   @override
   String iconPickerIconsAvailable(int count) {
-    return '$count iconos disponibles';
+    return '$count ícones disponíveis';
   }
 
   @override
@@ -2929,7 +2929,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get universalPowerNoCodesFound =>
-      'Não se encontraron códigos de ligado. Intenta ampliar a pesquisa.';
+      'Não foram encontrados códigos de energia. Tente ampliar a pesquisa.';
 
   @override
   String get universalPowerUnableToStart => 'Não se pudo iniciar.';
@@ -2945,7 +2945,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get universalPowerBroadenSearchHint =>
-      'Se não se encuentran etiquetas de ligado, incluye otras teclas.';
+      'Se não forem encontradas etiquetas de energia, inclua outras teclas.';
 
   @override
   String get universalPowerAdditionalPatternsDepth =>
@@ -2965,11 +2965,11 @@ class AppLocalizationsPt extends AppLocalizations {
       'Incluir todas as etiquetas (menor prioridad)';
 
   @override
-  String get universalPowerLoopUntilStopped => 'Repetir hasta parar';
+  String get universalPowerLoopUntilStopped => 'Repetir até parar';
 
   @override
   String get universalPowerLoopUntilStoppedHint =>
-      'Segue ciclando a cola hasta que a detengas.';
+      'Continua a percorrer a fila até parar.';
 
   @override
   String get universalPowerDelayBetweenCodes => 'Pausa entre códigos';
@@ -2987,10 +2987,10 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get universalPowerPausedInBackground =>
-      'En pausa porque a app pasó a segundo plano.';
+      'Em pausa porque a app passou para segundo plano.';
 
   @override
-  String get universalPowerSendOneCode => 'Enviar un código';
+  String get universalPowerSendOneCode => 'Enviar um código';
 
   @override
   String get universalPowerStopWhenDeviceResponds =>
@@ -4395,7 +4395,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get unknownProtocolSelected =>
-      'Se seleccionó un protocolo desconhecido.';
+      'Foi selecionado um protocolo desconhecido.';
 
   @override
   String get continueSectionTitle => 'Continue';
@@ -4806,7 +4806,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Dongle USB autorizado, mas a inicialização falhou.';
 
   @override
-  String get homeHardwareBannerReady => 'USB está listo.';
+  String get homeHardwareBannerReady => 'USB está pronto.';
 
   @override
   String get homeHardwareRequiredTitle =>
@@ -5170,7 +5170,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get languageFrenchShort => 'Francês';
 
   @override
-  String get useDynamicColors => 'Usar colores dinámicos';
+  String get useDynamicColors => 'Usar cores dinâmicas';
 
   @override
   String get themeChoiceAuto => 'Auto';
@@ -5576,7 +5576,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get exportBackupSubtitle =>
-      'Salvar controles + macros como un JSON en Descargas';
+      'Salvar controles + macros como um JSON em Downloads';
 
   @override
   String get restoreDemoRemotes => 'Restaurar controles de demonstração';
@@ -5726,7 +5726,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get usbStatusNoDevice =>
-      'Não foi detectado un dongle IR USB compatível.';
+      'Nenhum dongle IR USB compatível foi detectado.';
 
   @override
   String get usbSelectPermissionRequired =>
@@ -5772,7 +5772,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get audioModeEnabledMessage =>
-      'Modo áudio ativado. Usa o volume multimedia ao máximo e un adaptador LED de áudio a IR.';
+      'Modo de áudio ativado. Use o volume de mídia no máximo e um adaptador LED de áudio para IR.';
 
   @override
   String get usbPermissionRequestSent => 'Solicitud de permissão USB enviada.';
@@ -5794,15 +5794,15 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get transmitterHelpUsb =>
-      'Usa un dongle IR USB (requiere permissão) para enviar controles.';
+      'Usa um dongle IR USB (requer permissão) para enviar controles.';
 
   @override
   String get transmitterHelpAudio1 =>
-      'Usa a saída de áudio (mono). Requiere un adaptador LED de áudio a IR e volume multimedia alto.';
+      'Usa a saída de áudio (mono). Requer um adaptador LED de áudio para IR e volume de mídia alto.';
 
   @override
   String get transmitterHelpAudio2 =>
-      'Usa a saída de áudio (estéreo). Usa dos canales para un melhor control LED con adaptadores compatíveis.';
+      'Usa a saída de áudio (estéreo). Usa dois canais para melhor controle do LED com adaptadores compatíveis.';
 
   @override
   String get transmitterInternal => 'IR interno';
@@ -5842,7 +5842,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Usa USB quando está conectado, caso contrário Interno';
 
   @override
-  String get unavailableOnThisDevice => 'Não disponible en este dispositivo';
+  String get unavailableOnThisDevice => 'Não disponível neste dispositivo';
 
   @override
   String get openOnUsbAttachTitle => 'Abrir ao conectar USB';
@@ -5866,7 +5866,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get unnamedButton => 'Botão sem nome';
 
   @override
-  String get iconFallback => 'Icono';
+  String get iconFallback => 'Ícone';
 
   @override
   String get remoteListReorderHint =>
@@ -5898,7 +5898,8 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get add => 'Adicionar';
 
   @override
-  String get addedToDeviceControls => 'Añadido a controles do dispositivo.';
+  String get addedToDeviceControls =>
+      'Adicionado aos controles do dispositivo.';
 
   @override
   String deletedRemoteUndoUnavailable(Object name) {
@@ -5926,7 +5927,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get edit => 'Editar';
 
   @override
-  String get editRemoteSubtitle => 'Renombrar e editar botões';
+  String get editRemoteSubtitle => 'Renomear e editar botões';
 
   @override
   String get thisCannotBeUndone => 'Isto não pode ser desfeito';
@@ -5962,14 +5963,14 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get noRemotesDescription =>
-      'Crea un controle para empezar a enviar códigos IR.';
+      'Crie um controle para começar a enviar códigos IR.';
 
   @override
   String get noRemotesNextStep =>
       'Próximo passo: toque em Adicionar controle e depois adicione os seus primeiros botões.';
 
   @override
-  String get actions => 'Acciones';
+  String get actions => 'Ações';
 
   @override
   String get macrosTitle => 'Macros';
@@ -5996,14 +5997,14 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get macroFeatureToysDescription =>
-      'Controla dispositivos como perros robô i-cybie, robôs i-sobot e otros brinquedos que precisan tiempo entre controles para procesar acciones.';
+      'Controla dispositivos como cães robôs i-cybie, robôs i-sobot e outros brinquedos que precisam de tempo entre comandos para processar ações.';
 
   @override
-  String get macroFeatureTimingTitle => 'Control preciso do tiempo';
+  String get macroFeatureTimingTitle => 'Controle preciso do tempo';
 
   @override
   String get macroFeatureTimingDescription =>
-      'Adicione pausas entre controles (de 250 ms a duraciones personalizadas) para que o seu dispositivo responda antes de a seguinte acción.';
+      'Adicione pausas entre comandos (de 250 ms até durações personalizadas) para que o dispositivo responda antes da próxima ação.';
 
   @override
   String get macroFeatureManualTitle => 'Passos con continuación manual';
@@ -6013,14 +6014,14 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Pausa a execução e espera o seu confirmación quando a animación varía o precisas confirmación visual.';
 
   @override
-  String get exampleUseCase => 'Ejemplo de uso';
+  String get exampleUseCase => 'Exemplo de uso';
 
   @override
   String get macroExampleText =>
-      'Modo avanzado de i-cybie:\n1. Enviar controle \"Mode\"\n2. Asalvar 1000 ms (el juguete procesa)\n3. Enviar \"Action 1\"\n4. Asalvar 1000 ms\n5. Enviar \"Action 2\"\n…y así sucesivamente de forma automática.';
+      'Modo avançado do i-cybie:\n1. Enviar comando \"Mode\"\n2. Aguardar 1000 ms (o brinquedo processa)\n3. Enviar \"Action 1\"\n4. Aguardar 1000 ms\n5. Enviar \"Action 2\"\n...e assim por diante automaticamente.';
 
   @override
-  String get createFirstMacro => 'Crea o seu primeira macro';
+  String get createFirstMacro => 'Crie sua primeira macro';
 
   @override
   String get noRemote => 'Sem controle';
@@ -6048,7 +6049,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get sendCommandDescription =>
-      'Transmite un controle IR de o seu controle.';
+      'Transmite um comando IR do seu controle.';
 
   @override
   String get delay => 'Pausa';
@@ -6062,7 +6063,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get manualContinueDescription =>
-      'Pausa a execução hasta que toques Continuar (útil para animaciones de duración variable).';
+      'Pausa a execução até você tocar em Continuar (útil para animações de duração variável).';
 
   @override
   String get gotIt => 'Entendido';
@@ -6086,10 +6087,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get deleteMacroMessage =>
-      'Pode desfazer isto desde o próximo mensaje.';
+      'Você pode desfazer isso na próxima mensagem.';
 
   @override
-  String get noRemotesAvailable => 'Não há controles disponibles.';
+  String get noRemotesAvailable => 'Não há controles disponíveis.';
 
   @override
   String remoteButtonCountSummary(int count) {
@@ -6112,7 +6113,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get remoteReorderHint =>
-      'Modo reordenar: mantenha pressionado e arraste un botão para moverlo.';
+      'Modo de reordenação: mantenha pressionado e arraste um botão para movê-lo.';
 
   @override
   String get manageRemote => 'Gerir controle';
@@ -6128,8 +6129,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get editRemote => 'Editar controle';
 
   @override
-  String get editRemoteActionsSubtitle =>
-      'Renombrar, reordenar e editar botões';
+  String get editRemoteActionsSubtitle => 'Renomear, reordenar e editar botões';
 
   @override
   String remoteUpdatedNamedButton(Object name) {
@@ -6148,7 +6148,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get loopRunningForButton => 'O ciclo está ativo para este botão.';
 
   @override
-  String get loopTip => 'Dica: usa Ciclo para repetir hasta detenerlo.';
+  String get loopTip => 'Dica: use Ciclo para repetir até parar.';
 
   @override
   String get loopingBadge => 'Looping';
@@ -6186,11 +6186,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get deviceControlsButtonSubtitle =>
-      'Muestra este botão en os controles do dispositivo do sistema';
+      'Mostra este botão nos controles do dispositivo do sistema';
 
   @override
   String get removedFromDeviceControls =>
-      'Quitado de controles do dispositivo.';
+      'Removido dos controles do dispositivo.';
 
   @override
   String get pinQuickTile => 'Fixar nos favoritos dos blocos rápidos';
@@ -6218,7 +6218,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Criar uma cópia e editá-la imediatamente';
 
   @override
-  String get done => 'Listo';
+  String get done => 'Concluído';
 
   @override
   String get run => 'Executar';
@@ -6253,7 +6253,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String importedButtonsFromExistingRemotes(int count) {
-    return 'Foram importados $count botão(es) desde controles existentes.';
+    return 'Foram importados $count botão(ões) de controles existentes.';
   }
 
   @override
@@ -6269,10 +6269,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get undoAvailableInNextSnackbar =>
-      'Pode deshacerlo desde o próximo mensaje';
+      'Você pode desfazer isso na próxima mensagem';
 
   @override
-  String get buttonRemoved => 'Botão quitado.';
+  String get buttonRemoved => 'Botão removido.';
 
   @override
   String get remoteNameCannotBeEmpty =>
@@ -6300,10 +6300,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get layoutCompactDescription =>
-      'Compacto: grade clásica 4× (apenas iconos/texto).';
+      'Compacto: grade clássica 4x (apenas ícones/texto).';
 
   @override
-  String get importFromRemotes => 'Importar desde controles';
+  String get importFromRemotes => 'Importar de controles';
 
   @override
   String get importFromDatabase => 'Importar de BD';
@@ -6316,7 +6316,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get createRemoteEmptyStateDescription =>
-      'Adicione o seu primeiro botão e luego mantenha pressionado para editar o remover.';
+      'Adicione seu primeiro botão e depois mantenha pressionado para editar ou remover.';
 
   @override
   String get createButtonTitle => 'Criar botão';
@@ -6358,14 +6358,14 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get buttonLabelStepSubtitle =>
-      'Escolha uma imagem, un icono o escreva uma etiqueta.';
+      'Escolha uma imagem, um ícone ou escreva uma etiqueta.';
 
   @override
   String get buttonColorStepTitle => 'Cor do botão';
 
   @override
   String get buttonColorStepSubtitle =>
-      'Escolha un cor de fondo para este botão.';
+      'Escolha uma cor de fundo para este botão.';
 
   @override
   String get selectColor => 'Selecione cor:';
@@ -6384,23 +6384,23 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get requiredSelectImageOrSwitch =>
-      'Obligatorio: selecione uma imagem, escolha un icono o cambia a Texto.';
+      'Obrigatório: selecione uma imagem, escolha um ícone ou mude para Texto.';
 
   @override
-  String get iconSelected => 'Icono selecionado';
+  String get iconSelected => 'Ícone selecionado';
 
   @override
-  String get noIconSelected => 'Não há icono selecionado';
+  String get noIconSelected => 'Nenhum ícone selecionado';
 
   @override
-  String get chooseIcon => 'Escolher icono';
+  String get chooseIcon => 'Escolher ícone';
 
   @override
-  String get removeIcon => 'Remover icono';
+  String get removeIcon => 'Remover ícone';
 
   @override
   String get requiredSelectIconOrSwitch =>
-      'Obligatorio: selecione un icono o cambia a Imagem/Texto.';
+      'Obrigatório: selecione um ícone ou mude para Imagem/Texto.';
 
   @override
   String get buttonText => 'Texto do botão';
@@ -6412,14 +6412,14 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get buttonTextHelper => 'Este texto aparecerá en o botão.';
 
   @override
-  String get requiredEnterButtonLabel => 'Obligatorio: introduza uma etiqueta.';
+  String get requiredEnterButtonLabel => 'Obrigatório: digite uma etiqueta.';
 
   @override
   String get defaultColorName => 'Predeterminado';
 
   @override
   String get newRemoteCreatedFromLastHit =>
-      'Foi criado un controle novo con un botão do último acierto.';
+      'Foi criado um novo controle com um botão do último acerto.';
 
   @override
   String get selectRemote => 'Selecionar controle';
@@ -6440,7 +6440,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String addedToRemoteNamed(Object name) {
-    return 'Añadido a $name.';
+    return 'Adicionado a $name.';
   }
 
   @override
@@ -6451,7 +6451,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String jumpedToOffsetPaused(int offset) {
-    return 'Saltó ao deslocação $offset. En pausa, pulsa retomar para seguir.';
+    return 'Saltou para o deslocamento $offset. Pausado, toque em retomar para continuar.';
   }
 
   @override
@@ -6466,7 +6466,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get copiedProtocolCode => 'Copiado (protocolo:código).';
 
   @override
-  String get savedToResults => 'Guardado en Resultados.';
+  String get savedToResults => 'Salvo em Resultados.';
 
   @override
   String invalidCodeForProtocol(Object error) {
@@ -6487,7 +6487,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String jumpedToCursorPaused(Object cursor) {
-    return 'Saltó ao cursor 0x$cursor. En pausa, pulsa retomar para seguir.';
+    return 'Saltou para o cursor 0x$cursor. Pausado, toque em retomar para continuar.';
   }
 
   @override
@@ -6517,7 +6517,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get deviceControlsEmptyHint =>
-      'Mantenha pressionado un botão do controle e selecione \"Adicionar a controles do dispositivo\".';
+      'Mantenha pressionado um botão do controle e selecione \"Adicionar aos controles do dispositivo\".';
 
   @override
   String get sendTest => 'Enviar teste';
@@ -6577,7 +6577,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
-  String get pickDifferentButton => 'Escolha un botão distinto';
+  String get pickDifferentButton => 'Escolha um botão diferente';
 
   @override
   String get browseAllRemotesEllipsis => 'Explorar todos os controles…';
@@ -6607,17 +6607,17 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get databaseModeAutofillHint =>
-      'El modo Base de dados completa o Passo 2 por ti (marca + modelo + protocolo). Tras importar uma tecla, pode ajustar tudo en Manual.';
+      'O modo Banco de dados preenche o Passo 2 para você (marca + modelo + protocolo). Após importar uma tecla, você pode ajustar tudo no modo Manual.';
 
   @override
-  String get test => 'Probar';
+  String get test => 'Testar';
 
   @override
   String get allSelectedButtonsWereDuplicates =>
       'Todos os botões elegidos eran duplicados.';
 
   @override
-  String get noButtonsImported => 'Não se importó nenhum botão.';
+  String get noButtonsImported => 'Nenhum botão foi importado.';
 
   @override
   String importedButtonsSkippedDuplicates(int addedCount, int skippedCount) {
@@ -6630,11 +6630,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get noMatchingKeysFound =>
-      'Não se encontraron teclas correspondentes.';
+      'Nenhuma tecla correspondente foi encontrada.';
 
   @override
   String importAllMatchingMessage(int count) {
-    return 'Isto importará hasta $count teclas correspondentes de a seleção atual de a base de dados.';
+    return 'Isto importará até $count teclas correspondentes da seleção atual do banco de dados.';
   }
 
   @override
@@ -6651,14 +6651,14 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get quickPresets => 'configurações rápidos';
 
   @override
-  String get selectDeviceFirst => 'Selecione primeiroo un dispositivo';
+  String get selectDeviceFirst => 'Selecione primeiro um dispositivo';
 
   @override
   String get searchByLabelOrHex => 'pesquisar por etiqueta o hex';
 
   @override
   String optionalRefinePresetKeys(Object preset) {
-    return 'Opcional: afina as teclas predefinidas de $preset';
+    return 'Opcional: refine as teclas predefinidas de $preset';
   }
 
   @override
@@ -6670,7 +6670,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get importFromDatabaseSubtitle =>
-      'Escolha un dispositivo, carga as teclas correspondentes e luego importa os botões selecionados.';
+      'Escolha um dispositivo, carregue as teclas correspondentes e depois importe os botões selecionados.';
 
   @override
   String get deviceAndFilters => 'Dispositivo e filtros';
@@ -6688,25 +6688,25 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get noProtocolFoundForBrandModel =>
-      'Não se encontró un protocolo para esta marca e modelo.';
+      'Nenhum protocolo foi encontrado para esta marca e modelo.';
 
   @override
   String get protocolAutoDetected => 'Protocolo';
 
   @override
   String get protocolAutoDetectedHelper =>
-      'detectado automaticamente desde a base de dados. Pode cambiarlo antes de importar.';
+      'Detectado automaticamente no banco de dados. Você pode alterá-lo antes de importar.';
 
   @override
   String get selectBrandModelToLoadKeys =>
       'Selecione uma marca, modelo e protocolo para carregar teclas.';
 
   @override
-  String get noKeysFound => 'Não se encontraron teclas.';
+  String get noKeysFound => 'Nenhuma tecla encontrada.';
 
   @override
   String noKeysFoundForSearch(Object query) {
-    return 'Não se encontraron teclas para \"$query\".';
+    return 'Nenhuma tecla encontrada para \"$query\".';
   }
 
   @override
@@ -6720,7 +6720,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get importSelected => 'Importar selecionados';
 
   @override
-  String get noMacrosToExport => 'Não há macros para exporter.';
+  String get noMacrosToExport => 'Não há macros para exportar.';
 
   @override
   String get macrosExportedToDownloads => 'Macros exportedas a Descargas.';
@@ -6733,7 +6733,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get importFromExistingRemotesTitle =>
-      'Importar desde controles existentes';
+      'Importar de controles existentes';
 
   @override
   String selectedCount(int count) {
@@ -6742,7 +6742,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get noOtherRemotesWithButtons =>
-      'Não se encontraron otros controles con botões.';
+      'Nenhum outro controle com botões foi encontrado.';
 
   @override
   String get sourceRemote => 'controle origen';
@@ -6789,7 +6789,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String importedLegacyJsonBackup(int count) {
-    return 'Foram importados $count controles de uma cópia JSON antigua. Las macros não cambiaron.';
+    return 'Foram importados $count controles de uma cópia JSON antiga. As macros não foram alteradas.';
   }
 
   @override
@@ -6802,11 +6802,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get importFailedInvalidBackupFormat =>
-      'Importação falhada: formato de cópia não válido (se esperaba uma List antigua o un Map con remotes/macros).';
+      'Falha na importação: formato de cópia inválido (era esperada uma lista antiga ou um mapa com remotes/macros).';
 
   @override
   String importedBackupRemotesOnly(int remoteCount) {
-    return 'Foram importados $remoteCount controles de a cópia. Las macros não cambiaron.';
+    return 'Foram importados $remoteCount controles da cópia. As macros não foram alteradas.';
   }
 
   @override
@@ -6820,7 +6820,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get importedOneRemoteFromFlipper =>
-      'Se importó 1 controle desde Flipper.ir. Las macros não cambiaron.';
+      'Foi importado 1 controle de Flipper.ir. As macros não foram alteradas.';
 
   @override
   String get importFailedInvalidIrplus =>
@@ -6828,7 +6828,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get importedOneRemoteFromIrplus =>
-      'Se importó 1 controle desde irplus. Las macros não cambiaron.';
+      'Foi importado 1 controle de irplus. As macros não foram alteradas.';
 
   @override
   String get importFailedInvalidLirc =>
@@ -6836,11 +6836,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get importedOneRemoteFromLirc =>
-      'Se importó 1 controle desde uma config LIRC. Las macros não cambiaron.';
+      'Foi importado 1 controle de uma configuração LIRC. As macros não foram alteradas.';
 
   @override
   String get unsupportedFileTypeSelected =>
-      'Se seleccionó un tipo de arquivo não compatível.';
+      'Foi selecionado um tipo de arquivo não compatível.';
 
   @override
   String get importFailedInvalidUnreadableFile =>
@@ -6885,7 +6885,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
-  String get invalidStepEncountered => 'Se encontró un passo não válido';
+  String get invalidStepEncountered => 'Foi encontrado um passo inválido';
 
   @override
   String failedToSendNamed(Object name) {
@@ -6920,11 +6920,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get orientationFlippedTooltip =>
-      'Orientación: invertida (toca para normal)';
+      'Orientação: invertida (toque para normal)';
 
   @override
   String get orientationNormalTooltip =>
-      'Orientación: normal (toca para inverter)';
+      'Orientação: normal (toque para inverter)';
 
   @override
   String get noSteps => 'Sem passos';
@@ -6938,13 +6938,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get completed => 'Completado';
 
   @override
-  String get paused => 'En pausa';
+  String get paused => 'Pausado';
 
   @override
   String get running => 'En curso';
 
   @override
-  String get ready => 'Listo';
+  String get ready => 'Pronto';
 
   @override
   String stepsProgress(int current, int total) {
@@ -6966,7 +6966,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get tapContinueWhenReady =>
-      'Toca Continuar quando estés listo para o seguinte passo';
+      'Toque em Continuar quando estiver pronto para o próximo passo';
 
   @override
   String get error => 'Error';
@@ -7000,22 +7000,22 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get unnamedRemote => 'Unnamed controle';
 
   @override
-  String get enterMacroName => 'Introduza un nome para a macro';
+  String get enterMacroName => 'Digite um nome para a macro';
 
   @override
-  String get addAtLeastOneStep => 'Adicione ao menos un passo';
+  String get addAtLeastOneStep => 'Adicione pelo menos um passo';
 
   @override
   String get fixInvalidSteps => 'Corrige os passos não válidos';
 
   @override
-  String get unknownCommand => 'Desconhecido Command';
+  String get unknownCommand => 'Comando desconhecido';
 
   @override
   String get unnamedCommand => 'controle sem nome';
 
   @override
-  String get iconCommand => 'controle de icono';
+  String get iconCommand => 'Comando de ícone';
 
   @override
   String get selectDelay => 'Selecionar Delay';
@@ -7056,7 +7056,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Recommended: 250-5000ms for most dispositivos';
 
   @override
-  String get enterValidPositiveNumber => 'Introduza un número positivo válido';
+  String get enterValidPositiveNumber => 'Digite um número positivo válido';
 
   @override
   String get ok => 'OK';
@@ -7087,7 +7087,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get reorderStepsHint =>
-      'Dica: arraste o asa para reordenar passos. Toca un passo para editarlo.';
+      'Dica: arraste a alça para reordenar os passos. Toque em um passo para editá-lo.';
 
   @override
   String reorderStep(int index) {
@@ -7104,7 +7104,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
-  String get invalidStepTapToFix => 'Passo não válido - toca para corregir';
+  String get invalidStepTapToFix => 'Passo inválido - toque para corrigir';
 
   @override
   String get sendIrCommand => 'Enviar controle IR';
@@ -7169,7 +7169,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get start => 'Iniciar';
 
   @override
-  String get resume => 'retomar';
+  String get resume => 'Retomar';
 
   @override
   String get pause => 'Pausa';
@@ -7190,18 +7190,18 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get addToRemote => 'Adicionar ao controle';
 
   @override
-  String get noDescriptionAvailable => 'Não há descripción disponible.';
+  String get noDescriptionAvailable => 'Nenhuma descrição disponível.';
 
   @override
   String get notAvailableSymbol => '-';
 
   @override
   String get irFinderKaseikyoVendorInvalid =>
-      'El proveedor Kaseikyo deve tener exactamente 4 dígitos hex.';
+      'O fornecedor Kaseikyo deve ter exatamente 4 dígitos hexadecimais.';
 
   @override
   String get irFinderDatabaseNotReady =>
-      'La base de dados ainda não está lista.';
+      'O banco de dados ainda não está pronto.';
 
   @override
   String get irFinderSelectBrandFirst =>
@@ -7209,10 +7209,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get irFinderBruteforceUnavailable =>
-      'La força bruta ainda não está disponible para este protocolo.';
+      'A força bruta ainda não está disponível para este protocolo.';
 
   @override
-  String get irFinderInvalidPrefix => 'Prefijo não válido.';
+  String get irFinderInvalidPrefix => 'Prefixo inválido.';
 
   @override
   String irFinderBrandValue(Object value) {
@@ -7236,17 +7236,17 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get irFinderJumpOffsetHelper =>
-      'Introduza un índice base 0 dentro de os resultados filtrados e ordenados.';
+      'Digite um índice base 0 dentro dos resultados filtrados e ordenados.';
 
   @override
   String get irFinderJumpCursorHelper =>
-      'Introduza un cursor hex base 0 dentro do espaço de força bruta.';
+      'Digite um cursor hexadecimal base 0 dentro do espaço de força bruta.';
 
   @override
   String get irFinderSetupTab => 'Configuração';
 
   @override
-  String get irFinderTestTab => 'Probar';
+  String get irFinderTestTab => 'Testar';
 
   @override
   String get irFinderResultsTab => 'Resultados';
@@ -7268,7 +7268,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get irFinderNoSavedHits =>
-      'Ainda não há aciertos guardados. En a página Teste, pulsa \"Salvar acierto\" quando o dispositivo responda.';
+      'Ainda não há acertos salvos. Na página Testar, toque em \"Salvar acerto\" quando o dispositivo responder.';
 
   @override
   String get irFinderBackToTest => 'voltar a Teste';
@@ -7278,17 +7278,17 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String irFinderLargeSearchSpaceBody(Object human) {
-    return 'Este espaço de força bruta es muy grande ($human posibilidades). IR Finder respetará os seus intentos máximos e a espera, mas evita saturar dispositivos IR.\n\nRecomendación: usa primeiroo o modo Base de dados y/o introduza bytes de prefijo conocidos para reducir o espaço.';
+    return 'Este espaço de força bruta é muito grande ($human possibilidades). O IR Finder respeitará suas tentativas máximas e a espera, mas evite saturar dispositivos IR.\n\nRecomendação: use primeiro o modo Banco de dados e/ou informe bytes de prefixo conhecidos para reduzir o espaço.';
   }
 
   @override
-  String get irFinderDatabaseSession => 'Sesión de base de dados';
+  String get irFinderDatabaseSession => 'Sessão do banco de dados';
 
   @override
-  String get irFinderBruteforceSession => 'Sesión de força bruta';
+  String get irFinderBruteforceSession => 'Sessão de força bruta';
 
   @override
-  String get irFinderResumeLastSession => 'retomar última sesión';
+  String get irFinderResumeLastSession => 'Retomar última sessão';
 
   @override
   String irFinderResumeBrandModel(Object brand, Object model) {
@@ -7297,7 +7297,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String irFinderResumePrefix(Object value) {
-    return 'Prefijo: $value';
+    return 'Prefixo: $value';
   }
 
   @override
@@ -7328,7 +7328,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get irFinderKnownPrefixLabel =>
-      'Prefijo conocido (bytes hex, opcional)';
+      'Prefixo conhecido (bytes hexadecimais, opcional)';
 
   @override
   String get irFinderKnownPrefixHint => 'A1B2, A1 B2, A1:B2, 0xA1 0xB2';
@@ -7340,23 +7340,23 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String irFinderKnownPrefixHelperPayloadExample(int digits, Object example) {
-    return 'Carga: $digits dígito(s) hex · Ejemplo: $example';
+    return 'Carga: $digits dígito(s) hexadecimais · Exemplo: $example';
   }
 
   @override
   String irFinderKnownPrefixHelperPayloadMax(int digits, int bytes) {
-    return 'Carga: $digits dígito(s) hex · Prefijo máx.: $bytes byte(s)';
+    return 'Carga: $digits dígito(s) hexadecimais · Prefixo máx.: $bytes byte(s)';
   }
 
   @override
   String irFinderKnownPrefixHelperPayloadExampleMax(
       int digits, Object example, int bytes) {
-    return 'Carga: $digits dígito(s) hex · Ejemplo: $example · Prefijo máx.: $bytes byte(s)';
+    return 'Carga: $digits dígito(s) hexadecimais · Exemplo: $example · Prefixo máx.: $bytes byte(s)';
   }
 
   @override
   String irFinderKnownPrefixHelperExample(Object example) {
-    return 'Ejemplo: $example';
+    return 'Exemplo: $example';
   }
 
   @override
@@ -7368,15 +7368,15 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String irFinderNormalizedPrefixValue(Object value) {
-    return 'Prefijo normalizado: $value';
+    return 'Prefixo normalizado: $value';
   }
 
   @override
-  String get irFinderNormalizedPrefix => 'Prefijo normalizado';
+  String get irFinderNormalizedPrefix => 'Prefixo normalizado';
 
   @override
   String get irFinderBruteforceNotConfigured =>
-      'La força bruta ainda não está configurada para este protocolo.';
+      'A força bruta ainda não está configurada para este protocolo.';
 
   @override
   String irFinderAllLimit(Object value) {
@@ -7393,25 +7393,25 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String irFinderSearchSpace(Object value) {
-    return 'Espaço de pesquisa: $value posibilidades (tras as restricciones do prefijo).';
+    return 'Espaço de pesquisa: $value possibilidades (após as restrições do prefixo).';
   }
 
   @override
   String get irFinderCooldownMs => 'Espera (ms)';
 
   @override
-  String get irFinderMaxAttemptsPerRun => 'Intentos máx. (por execução)';
+  String get irFinderMaxAttemptsPerRun => 'Máx. de tentativas por execução';
 
   @override
-  String get irFinderTestAllCombinations => 'Probar todas as combinaciones';
+  String get irFinderTestAllCombinations => 'Testar todas as combinações';
 
   @override
   String irFinderTestAllCombinationsHint(Object value) {
-    return 'Se ejecuta hasta agotar o espaço de pesquisa. Límite efectivo: $value';
+    return 'Executa até esgotar o espaço de pesquisa. Limite efetivo: $value';
   }
 
   @override
-  String get irFinderAttempts => 'Intentos';
+  String get irFinderAttempts => 'Tentativas';
 
   @override
   String irFinderAttemptsSliderRange(int max) {
@@ -7430,7 +7430,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get irFinderBruteforceTip =>
-      'Dica: usa primeiroo o modo Base de dados; a força bruta va melhor con un prefijo conocido (por ejemplo, os primeiroos 1–4 bytes).';
+      'Dica: use primeiro o modo Banco de dados; a força bruta funciona melhor com um prefixo conhecido (por exemplo, os primeiros 1 a 4 bytes).';
 
   @override
   String get irFinderDatabaseInitFailed =>
@@ -7457,24 +7457,24 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get irFinderSelectModelRecommended =>
-      'Selecione un modelo (recomendado)';
+      'Selecione um modelo (recomendado)';
 
   @override
   String get irFinderOnlySelectedProtocol => 'Apenas protocolo selecionado';
 
   @override
   String get irFinderOnlySelectedProtocolHint =>
-      'Filtra as teclas ao protocolo escolhido. Desactívalo para ver todos os protocolos.';
+      'Filtra as teclas pelo protocolo escolhido. Desative para ver todos os protocolos.';
 
   @override
-  String get irFinderQuickWinsFirst => 'Aciertos rápidos primeiroo';
+  String get irFinderQuickWinsFirst => 'Acertos rápidos primeiro';
 
   @override
   String get irFinderQuickWinsFirstHint =>
-      'Prioriza teclas tipo POWER, MUTE, VOL e CH antes que otras mais profundas.';
+      'Prioriza teclas como POWER, MUTE, VOL e CH antes de outras mais profundas.';
 
   @override
-  String get irFinderMaxKeysPerRun => 'Teclas máx. a probar (por execução)';
+  String get irFinderMaxKeysPerRun => 'Máx. de teclas a testar por execução';
 
   @override
   String get irFinderTesting => 'Probando…';
@@ -7498,7 +7498,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get irFinderJump => 'Saltar…';
 
   @override
-  String get irFinderSaveHit => 'Salvar acierto';
+  String get irFinderSaveHit => 'Salvar acerto';
 
   @override
   String irFinderEtaSeconds(int seconds) {
@@ -7545,7 +7545,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get irFinderResultsNote =>
-      'Los resultados permiten Probar e Copiar ao instante. La integración directa para adicionar ao controle pode ampliarse luego en o editor.';
+      'Os resultados permitem Testar e Copiar imediatamente. A integração direta para adicionar ao controle pode ser ampliada depois no editor.';
 
   @override
   String get irFinderBrowseDbCandidatesTitle => 'Explorar candidatos de BD';
@@ -7566,17 +7566,17 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get irFinderSearchModels => 'pesquisar modelos…';
 
   @override
-  String get iconPickerTitle => 'Selecionar icono';
+  String get iconPickerTitle => 'Selecionar ícone';
 
   @override
-  String get iconPickerSearchHint => 'pesquisar iconos..';
+  String get iconPickerSearchHint => 'Pesquisar ícones...';
 
   @override
-  String get iconPickerNoIconsFound => 'Não se encontraron iconos';
+  String get iconPickerNoIconsFound => 'Nenhum ícone encontrado';
 
   @override
   String iconPickerIconsAvailable(int count) {
-    return '$count iconos disponibles';
+    return '$count ícones disponíveis';
   }
 
   @override
@@ -7636,7 +7636,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get universalPowerNoCodesFound =>
-      'Não se encontraron códigos de conectado. Intenta ampliar a pesquisa.';
+      'Nenhum código de energia foi encontrado. Tente ampliar a pesquisa.';
 
   @override
   String get universalPowerUnableToStart => 'Não se pudo iniciar.';
@@ -7652,7 +7652,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get universalPowerBroadenSearchHint =>
-      'Se não se encuentran etiquetas de conectado, incluye otras teclas.';
+      'Se nenhuma etiqueta de energia for encontrada, inclua outras teclas.';
 
   @override
   String get universalPowerAdditionalPatternsDepth =>
@@ -7673,11 +7673,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Incluir todas as etiquetas (menor prioridad)';
 
   @override
-  String get universalPowerLoopUntilStopped => 'Repetir hasta parar';
+  String get universalPowerLoopUntilStopped => 'Repetir até parar';
 
   @override
   String get universalPowerLoopUntilStoppedHint =>
-      'Segue ciclando a cola hasta que a detengas.';
+      'Continua percorrendo a fila até você parar.';
 
   @override
   String get universalPowerDelayBetweenCodes => 'Pausa entre códigos';
@@ -7695,10 +7695,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get universalPowerPausedInBackground =>
-      'En pausa porque o app pasó a segundo plano.';
+      'Pausado porque o app foi para segundo plano.';
 
   @override
-  String get universalPowerSendOneCode => 'Enviar un código';
+  String get universalPowerSendOneCode => 'Enviar um código';
 
   @override
   String get universalPowerStopWhenDeviceResponds =>
@@ -9103,7 +9103,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get unknownProtocolSelected =>
-      'Se seleccionó un protocolo desconhecido.';
+      'Foi selecionado um protocolo desconhecido.';
 
   @override
   String get continueSectionTitle => 'Continue';

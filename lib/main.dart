@@ -22,6 +22,7 @@ import 'package:irblaster_controller/utils/macros_io.dart';
 import 'package:irblaster_controller/widgets/home_shell.dart';
 import 'package:irblaster_controller/widgets/quick_tile_chooser.dart';
 import 'package:irblaster_controller/state/quick_settings_prefs.dart';
+import 'package:irblaster_controller/state/home_button_widget_prefs.dart';
 import 'package:media_store_plus/media_store_plus.dart';
 
 Future<void> main() async {
@@ -59,9 +60,14 @@ Future<void> main() async {
 
 final GlobalKey<NavigatorState> _navKey = GlobalKey<NavigatorState>();
 
-const MethodChannel _controlChannel = MethodChannel('org.nslabs/irtransmitter_controls');
-const MethodChannel _quickTileChannel = MethodChannel('org.nslabs/irtransmitter_quick_tile');
+const MethodChannel _controlChannel =
+    MethodChannel('org.nslabs/irtransmitter_controls');
+const MethodChannel _quickTileChannel =
+    MethodChannel('org.nslabs/irtransmitter_quick_tile');
+const MethodChannel _homeWidgetChannel =
+    MethodChannel('org.nslabs/irtransmitter_home_widget');
 String? _pendingQuickTileKey;
+int? _pendingHomeWidgetId;
 
 void _initControlChannel() {
   _controlChannel.setMethodCallHandler((call) async {
@@ -85,6 +91,19 @@ void _initControlChannel() {
       if (raw is String) key = raw;
     }
     await _openQuickTileChooser(key);
+  });
+
+  _homeWidgetChannel.setMethodCallHandler((call) async {
+    if (call.method != 'configureWidget') return;
+    final args = call.arguments;
+    int? id;
+    if (args is Map) {
+      final raw = args['appWidgetId'];
+      if (raw is int) id = raw;
+      if (raw is String) id = int.tryParse(raw);
+    }
+    if (id == null || id <= 0) return;
+    await _configureHomeButtonWidget(id);
   });
 }
 
@@ -113,7 +132,8 @@ Future<void> _sendButtonById(String buttonId) async {
 
   try {
     await sendIR(found);
-    debugPrint('Device control sent: ${remoteFound?.name ?? 'Remote'} / ${found.id}');
+    debugPrint(
+        'Device control sent: ${remoteFound?.name ?? 'Remote'} / ${found.id}');
   } catch (e, st) {
     debugPrint('Device control send failed: $e\n$st');
   }
@@ -145,6 +165,49 @@ Future<void> _openQuickTileChooser(String? tileKey) async {
   }
   if (!ctx.mounted) return;
   await sendButtonPick(ctx, pick);
+}
+
+Future<void> _configureHomeButtonWidget(int appWidgetId) async {
+  final ctx = _navKey.currentContext;
+  if (ctx == null) {
+    _pendingHomeWidgetId = appWidgetId;
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      final id = _pendingHomeWidgetId;
+      _pendingHomeWidgetId = null;
+      if (id != null) await _configureHomeButtonWidget(id);
+    });
+    return;
+  }
+  final pick = await pickButtonForTile(ctx);
+  if (!ctx.mounted || pick == null) return;
+  try {
+    final mapping = await buildHomeButtonWidgetMapping(pick);
+    if (!ctx.mounted) return;
+    if (mapping == null) {
+      ScaffoldMessenger.of(ctx).showSnackBar(
+        const SnackBar(
+            content: Text('This button cannot be used as a widget.')),
+      );
+      return;
+    }
+    final ok = await HomeButtonWidgetPrefs.saveWidgetMapping(
+      appWidgetId: appWidgetId,
+      mapping: mapping,
+    );
+    if (!ctx.mounted) return;
+    ScaffoldMessenger.of(ctx).showSnackBar(
+      SnackBar(
+        content: Text(ok
+            ? 'Home widget configured.'
+            : 'Home widget could not be configured.'),
+      ),
+    );
+  } catch (e) {
+    if (!ctx.mounted) return;
+    ScaffoldMessenger.of(ctx).showSnackBar(
+      SnackBar(content: Text('Home widget setup failed: $e')),
+    );
+  }
 }
 
 QuickTileType? _tileTypeFromKey(String? key) {
@@ -181,8 +244,11 @@ class _App extends StatelessWidget {
                 ? (lightDynamic ?? ColorScheme.fromSeed(seedColor: Colors.blue))
                 : ColorScheme.fromSeed(seedColor: Colors.blue);
             final ColorScheme darkScheme = useDynamic
-                ? (darkDynamic ?? ColorScheme.fromSeed(seedColor: Colors.blue, brightness: Brightness.dark))
-                : ColorScheme.fromSeed(seedColor: Colors.blue, brightness: Brightness.dark);
+                ? (darkDynamic ??
+                    ColorScheme.fromSeed(
+                        seedColor: Colors.blue, brightness: Brightness.dark))
+                : ColorScheme.fromSeed(
+                    seedColor: Colors.blue, brightness: Brightness.dark);
             return MaterialApp(
               onGenerateTitle: (context) => context.l10n.appTitle,
               debugShowCheckedModeBanner: false,
@@ -196,11 +262,18 @@ class _App extends StatelessWidget {
               ],
               supportedLocales: AppLocalizations.supportedLocales,
               localeResolutionCallback: (locale, supportedLocales) {
-                return AppLocaleController.instance.resolveActiveLocale(supportedLocales.toList(), locale);
+                return AppLocaleController.instance
+                    .resolveActiveLocale(supportedLocales.toList(), locale);
               },
               themeMode: AppThemeController.instance.mode,
-              theme: ThemeData(useMaterial3: true, colorScheme: lightScheme, brightness: Brightness.light),
-              darkTheme: ThemeData(useMaterial3: true, colorScheme: darkScheme, brightness: Brightness.dark),
+              theme: ThemeData(
+                  useMaterial3: true,
+                  colorScheme: lightScheme,
+                  brightness: Brightness.light),
+              darkTheme: ThemeData(
+                  useMaterial3: true,
+                  colorScheme: darkScheme,
+                  brightness: Brightness.dark),
               home: const _BootstrapScreen(),
             );
           },
@@ -232,7 +305,8 @@ class _BootstrapScreenState extends State<_BootstrapScreen> {
       bootstrapL10n = await AppLocalizations.delegate.load(bootstrapLocale);
     } catch (_) {
       bootstrapL10n = await AppLocalizations.delegate.load(
-        AppLocaleController.instance.resolveActiveLocale(supportedLocales, const Locale('en')),
+        AppLocaleController.instance
+            .resolveActiveLocale(supportedLocales, const Locale('en')),
       );
     }
     await MediaStore.ensureInitialized().timeout(
@@ -249,7 +323,8 @@ class _BootstrapScreenState extends State<_BootstrapScreen> {
       },
     );
     if (remotes.isEmpty) {
-      remotes = writeDefaultRemotes(demoRemoteName: bootstrapL10n.demoRemoteName);
+      remotes =
+          writeDefaultRemotes(demoRemoteName: bootstrapL10n.demoRemoteName);
     }
     notifyRemotesChanged();
     macros = await readMacros().timeout(

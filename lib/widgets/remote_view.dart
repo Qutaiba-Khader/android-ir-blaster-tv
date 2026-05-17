@@ -11,6 +11,7 @@ import 'package:irblaster_controller/state/last_action_strip.dart';
 import 'package:irblaster_controller/state/remote_highlights_prefs.dart';
 import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:irblaster_controller/state/device_controls_prefs.dart';
+import 'package:irblaster_controller/state/home_button_widget_prefs.dart';
 import 'package:irblaster_controller/state/quick_settings_prefs.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/utils/button_color_accessibility.dart';
@@ -18,6 +19,7 @@ import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/create_button.dart';
 import 'package:irblaster_controller/widgets/ir_waveform_view.dart';
+import 'package:irblaster_controller/widgets/quick_tile_chooser.dart';
 import 'package:irblaster_controller/widgets/remote_editor/remote_editor_draft.dart';
 import 'package:irblaster_controller/widgets/remote_studio_screen.dart';
 import 'package:reorderable_grid_view/reorderable_grid_view.dart';
@@ -1143,6 +1145,51 @@ class RemoteViewState extends State<RemoteView> {
     }
   }
 
+  Future<void> _pinHomeWidget(IRButton b, String label) async {
+    try {
+      final supported = await HomeButtonWidgetPrefs.isPinSupported();
+      if (!mounted) return;
+      if (!supported) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text(
+              'Your launcher does not support adding widgets from inside the app. Add the IR Button widget from the home screen widget picker.',
+            ),
+          ),
+        );
+        return;
+      }
+      final mapping = await buildHomeButtonWidgetMapping(
+        QuickTilePick(remote: _remote, button: b, title: label),
+      );
+      if (!mounted) return;
+      if (mapping == null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('This button cannot be used as a home widget.'),
+          ),
+        );
+        return;
+      }
+      final ok = await HomeButtonWidgetPrefs.pinButtonWidget(mapping);
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            ok
+                ? 'Widget request sent. Confirm it on your launcher.'
+                : 'The launcher rejected the widget request.',
+          ),
+        ),
+      );
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Home widget setup failed: $e')),
+      );
+    }
+  }
+
   Future<void> _openButtonActions(IRButton b) async {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
@@ -1409,6 +1456,17 @@ class RemoteViewState extends State<RemoteView> {
                                 : context.l10n.pinnedToQuickTileFavorites),
                           ),
                         );
+                      },
+                    ),
+                    ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: const Icon(Icons.widgets_rounded),
+                      title: const Text('Add home widget'),
+                      subtitle:
+                          const Text('Place this button on your home screen.'),
+                      onTap: () {
+                        Navigator.of(ctx).pop();
+                        Future.microtask(() => _pinHomeWidget(b, label));
                       },
                     ),
                     ListTile(

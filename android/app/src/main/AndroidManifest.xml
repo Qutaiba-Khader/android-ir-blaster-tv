@@ -97,6 +97,22 @@
             </intent-filter>
         </receiver>
 
+        <receiver
+            android:name=".IrButtonWidgetProvider"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="org.nslabs.irblaster.widget.SEND_BUTTON" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/ir_button_widget_info" />
+        </receiver>
+
+        <receiver
+            android:name=".IrButtonWidgetPinnedReceiver"
+            android:exported="false" />
+
         <service
             android:name=".DeviceControlsService"
             android:permission="android.permission.BIND_CONTROLS"
