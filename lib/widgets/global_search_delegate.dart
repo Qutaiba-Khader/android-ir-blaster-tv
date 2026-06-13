@@ -33,12 +33,14 @@ class GlobalSearchDelegate extends SearchDelegate<void> {
   }
 
   @override
-  Widget buildResults(BuildContext context) => _buildResults(context);
+  Widget buildResults(BuildContext context) =>
+      _buildResults(context, autofocusFirst: true);
 
   @override
-  Widget buildSuggestions(BuildContext context) => _buildResults(context);
+  Widget buildSuggestions(BuildContext context) =>
+      _buildResults(context, autofocusFirst: false);
 
-  Widget _buildResults(BuildContext context) {
+  Widget _buildResults(BuildContext context, {bool autofocusFirst = false}) {
     final items = _collectResults(context, query);
     if (items.isEmpty) {
       return Center(
@@ -75,7 +77,12 @@ class GlobalSearchDelegate extends SearchDelegate<void> {
       separatorBuilder: (_, __) => const SizedBox(height: 10),
       itemBuilder: (context, index) {
         final item = items[index];
-        return _SearchResultCard(item: item);
+        return _SearchResultCard(
+          item: item,
+          // After submitting the search, move D-pad focus onto the first result
+          // so the user can leave the (focus-trapping) search field.
+          autofocus: autofocusFirst && index == 0,
+        );
       },
     );
   }
@@ -212,15 +219,24 @@ class _SearchResultItem {
   }
 }
 
-class _SearchResultCard extends StatelessWidget {
+class _SearchResultCard extends StatefulWidget {
   final _SearchResultItem item;
+  final bool autofocus;
 
-  const _SearchResultCard({required this.item});
+  const _SearchResultCard({required this.item, this.autofocus = false});
+
+  @override
+  State<_SearchResultCard> createState() => _SearchResultCardState();
+}
+
+class _SearchResultCardState extends State<_SearchResultCard> {
+  bool _focused = false;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
+    final item = widget.item;
     final effectiveSubtitle = switch (item.type) {
       _SearchItemType.remote =>
         context.l10n.remoteButtonCountLabel(item.remote!.buttons.length),
@@ -239,10 +255,15 @@ class _SearchResultCard extends StatelessWidget {
       color: cs.surfaceContainerHigh,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
-        side: BorderSide(color: cs.outlineVariant.withValues(alpha: 0.35)),
+        side: _focused
+            ? BorderSide(color: cs.primary, width: 3)
+            : BorderSide(color: cs.outlineVariant.withValues(alpha: 0.35)),
       ),
       clipBehavior: Clip.antiAlias,
       child: InkWell(
+        autofocus: widget.autofocus,
+        onFocusChange: (f) => setState(() => _focused = f),
+        focusColor: cs.primary.withValues(alpha: 0.16),
         onTap: () => _open(context),
         child: Padding(
           padding: const EdgeInsets.all(14),
@@ -306,6 +327,7 @@ class _SearchResultCard extends StatelessWidget {
   }
 
   Future<void> _open(BuildContext context) async {
+    final item = widget.item;
     Navigator.of(context).pop();
     switch (item.type) {
       case _SearchItemType.remote:
