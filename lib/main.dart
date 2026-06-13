@@ -9,6 +9,7 @@ import 'package:irblaster_controller/state/app_shortcuts.dart';
 import 'package:irblaster_controller/state/app_theme.dart';
 import 'package:irblaster_controller/state/dynamic_color.dart';
 import 'package:irblaster_controller/state/haptics.dart';
+import 'package:irblaster_controller/state/ir_key_shortcuts.dart';
 import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:irblaster_controller/state/transmitter_prefs.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
@@ -27,6 +28,17 @@ import 'package:media_store_plus/media_store_plus.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // When launched by a launcher / key-remapper via ACTION_CREATE_SHORTCUT
+  // (ShortcutPickerActivity), render a minimal picker instead of the full app.
+  if (PlatformDispatcher.instance.defaultRouteName == shortcutPickerRoute) {
+    try {
+      await AppLocaleController.instance.load();
+    } catch (_) {}
+    runApp(const ShortcutPickerApp());
+    return;
+  }
+
   _initControlChannel();
   await AppShortcutController.instance.initialize(_navKey);
   FlutterError.onError = (details) {
@@ -269,10 +281,13 @@ class _App extends StatelessWidget {
               theme: ThemeData(
                   useMaterial3: true,
                   colorScheme: lightScheme,
+                  // Visible D-pad/keyboard focus tint for Android TV navigation.
+                  focusColor: lightScheme.primary.withValues(alpha: 0.20),
                   brightness: Brightness.light),
               darkTheme: ThemeData(
                   useMaterial3: true,
                   colorScheme: darkScheme,
+                  focusColor: darkScheme.primary.withValues(alpha: 0.22),
                   brightness: Brightness.dark),
               home: const _BootstrapScreen(),
             );

@@ -30,6 +30,11 @@
     <uses-feature android:name="android.hardware.usb.host" android:required="false" />
     <uses-feature android:name="android.hardware.consumerir" android:required="false" />
 
+    <!-- Android TV support: install on leanback devices that have no touchscreen -->
+    <uses-feature android:name="android.software.leanback" android:required="false" />
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+    <uses-feature android:name="android.hardware.faketouch" android:required="false" />
+
     <!-- IR transmission permission -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.TRANSMIT_IR" />
@@ -49,6 +54,7 @@
         android:label="IR Blaster Remote"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
+        android:banner="@drawable/tv_banner"
         android:enableOnBackInvokedCallback="true">
 
         <!-- Mitigation for old GPU drivers: opt-out of Impeller -->
@@ -72,8 +78,37 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+                <!-- Android TV home screen (leanback) launcher entry -->
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Picker shown when a launcher or key-remapper tool (tvQuickActions, Button
+             Mapper, Key Mapper, ...) creates a shortcut via ACTION_CREATE_SHORTCUT.
+             Runs in its own task so it never disturbs a running app instance. -->
+        <activity
+            android:name=".ShortcutPickerActivity"
+            android:exported="true"
+            android:label="IR Blaster Remote"
+            android:theme="@style/NormalTheme"
+            android:taskAffinity=""
+            android:excludeFromRecents="true"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- Invisible activity that fires a button/macro shortcut's IR with no UI.
+             Exported so the shortcut intent stored by external tools can launch it. -->
+        <activity
+            android:name=".IrShortcutFireActivity"
+            android:exported="true"
+            android:theme="@style/ShortcutFireTheme"
+            android:taskAffinity=""
+            android:excludeFromRecents="true"
+            android:noHistory="true" />
 
        <!-- Alias used only to receive USB attach when the user enables the setting -->
        <activity-alias

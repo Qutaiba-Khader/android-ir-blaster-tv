@@ -3,6 +3,16 @@ allprojects {
         google()
         mavenCentral()
     }
+    // Build-env fix (independent of the Android TV feature): the home_widget 0.8.1
+    // plugin requests "androidx.glance:glance-appwidget:1.+", which now resolves to a
+    // 1.3.0-alpha that demands AGP 9.1 / compileSdk 37. Pin glance to the latest stable
+    // across ALL modules (incl. :home_widget) so the project keeps building on the
+    // committed AGP 8.13.1 / compileSdk 36 toolchain.
+    configurations.all {
+        resolutionStrategy {
+            force 'androidx.glance:glance-appwidget:1.1.1'
+        }
+    }
 }
 
 rootProject.buildDir = '../build'

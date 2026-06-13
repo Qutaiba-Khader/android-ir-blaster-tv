@@ -1,6 +1,14 @@
 
 # Android IR Blaster
 
+> **📺 Android TV fork.** This fork adds Android TV / Google TV support to
+> [iodn/android-ir-blaster](https://github.com/iodn/android-ir-blaster): a leanback
+> launcher entry + banner, D-pad navigation with visible focus, and the ability to bind
+> any IR button or macro to a **physical remote key** that fires **silently** (built-in
+> emitter or USB IR dongle) — ideal with tvQuickActions / Button Mapper / Key Mapper.
+> See **[ANDROID_TV.md](ANDROID_TV.md)** for details and build notes. Phone/tablet
+> behaviour is unchanged.
+
 <a href="https://play.google.com/store/apps/details?id=org.nslabs.ir_blaster">
 <img src="fastlane/metadata/android/en-US/images/icon.png" width="160" alt="Android Infrared Blaster icon" align="left" style="border: solid 1px #ddd;"/>
 </a>

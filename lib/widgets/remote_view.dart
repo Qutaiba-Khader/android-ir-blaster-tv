@@ -48,6 +48,8 @@ class RemoteViewState extends State<RemoteView> {
   bool _rotate180 = false;
   String? _highlightButtonId;
   String? _pressedButtonId;
+  // Tracks the button currently focused by a D-pad / keyboard (Android TV).
+  String? _focusedButtonId;
   Timer? _highlightTimer;
   final ScrollController _gridScrollController = ScrollController();
 
@@ -203,6 +205,21 @@ class RemoteViewState extends State<RemoteView> {
     if (_pressedButtonId != id) return;
     if (!mounted) return;
     setState(() => _pressedButtonId = null);
+  }
+
+  // Mirrors _setPressedButton for D-pad / keyboard focus so the focused button
+  // gets a clearly visible ring on Android TV (and any keyboard navigation).
+  void _setFocusedButton(IRButton button, bool focused) {
+    final String id = button.id;
+    if (focused) {
+      if (_focusedButtonId == id) return;
+      if (!mounted) return;
+      setState(() => _focusedButtonId = id);
+      return;
+    }
+    if (_focusedButtonId != id) return;
+    if (!mounted) return;
+    setState(() => _focusedButtonId = null);
   }
 
   Color _interactiveButtonColor(
@@ -1635,6 +1652,7 @@ class RemoteViewState extends State<RemoteView> {
       itemBuilder: (context, index) {
         final IRButton button = _remote.buttons[index];
         final bool highlighted = _highlightButtonId == button.id;
+        final bool focused = _focusedButtonId == button.id;
         final bool pressed = _pressedButtonId == button.id;
         final bool loopingThis = _isLoopingThis(button);
         final String proto = _protocolLabel(button);
@@ -1687,7 +1705,9 @@ class RemoteViewState extends State<RemoteView> {
                 splashFactory: InkSparkle.splashFactory,
                 splashColor: cs.primary.withValues(alpha: 0.16),
                 highlightColor: cs.primary.withValues(alpha: 0.08),
+                focusColor: cs.primary.withValues(alpha: 0.20),
                 onHighlightChanged: (value) => _setPressedButton(button, value),
+                onFocusChange: (value) => _setFocusedButton(button, value),
                 onTap: () => _handleButtonPress(button),
                 onLongPress:
                     _reorderMode ? null : () => _openButtonActions(button),
@@ -1696,14 +1716,14 @@ class RemoteViewState extends State<RemoteView> {
                     Positioned.fill(
                       child: content,
                     ),
-                    if (highlighted)
+                    if (highlighted || focused)
                       Positioned.fill(
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(14),
                             border: Border.all(
-                              color: cs.tertiary,
-                              width: 2,
+                              color: focused ? cs.primary : cs.tertiary,
+                              width: focused ? 3 : 2,
                             ),
                           ),
                         ),
@@ -1794,6 +1814,7 @@ class RemoteViewState extends State<RemoteView> {
       itemBuilder: (context, index) {
         final IRButton button = _remote.buttons[index];
         final bool highlighted = _highlightButtonId == button.id;
+        final bool focused = _focusedButtonId == button.id;
         final bool pressed = _pressedButtonId == button.id;
         final bool loopingThis = _isLoopingThis(button);
         final bool isRaw = _isRawSignalButton(button);
@@ -1837,12 +1858,16 @@ class RemoteViewState extends State<RemoteView> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
                 side: BorderSide(
-                  color: highlighted
-                      ? cs.tertiary
-                      : (loopingThis
-                          ? cs.secondary.withValues(alpha: 0.65)
-                          : cs.outlineVariant.withValues(alpha: 0.35)),
-                  width: highlighted ? 2 : (loopingThis ? 1.5 : 1),
+                  color: focused
+                      ? cs.primary
+                      : (highlighted
+                          ? cs.tertiary
+                          : (loopingThis
+                              ? cs.secondary.withValues(alpha: 0.65)
+                              : cs.outlineVariant.withValues(alpha: 0.35))),
+                  width: focused
+                      ? 3
+                      : (highlighted ? 2 : (loopingThis ? 1.5 : 1)),
                 ),
               ),
               color: surfaceColor,
@@ -1852,7 +1877,9 @@ class RemoteViewState extends State<RemoteView> {
                 splashFactory: InkSparkle.splashFactory,
                 splashColor: cs.primary.withValues(alpha: 0.14),
                 highlightColor: cs.primary.withValues(alpha: 0.08),
+                focusColor: cs.primary.withValues(alpha: 0.18),
                 onHighlightChanged: (value) => _setPressedButton(button, value),
+                onFocusChange: (value) => _setFocusedButton(button, value),
                 onTap: () => _handleButtonPress(button),
                 onLongPress:
                     _reorderMode ? null : () => _openButtonActions(button),
