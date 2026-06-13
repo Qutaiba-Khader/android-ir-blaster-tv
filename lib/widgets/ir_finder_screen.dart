@@ -16,6 +16,7 @@ import 'package:irblaster_controller/state/last_action_strip.dart';
 import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
+import 'package:irblaster_controller/utils/tv_focus.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:uuid/uuid.dart';
 import 'dart:io';
@@ -3150,6 +3151,7 @@ class _DbCandidatesSheet extends StatefulWidget {
 class _DbCandidatesSheetState extends State<_DbCandidatesSheet> {
   Timer? _debounce;
   final TextEditingController _searchCtl = TextEditingController();
+  final FocusNode _searchFocus = tvEscapeFocusNode();
   final ScrollController _scrollCtl = ScrollController();
   bool _loading = false;
   bool _exhausted = false;
@@ -3175,6 +3177,7 @@ class _DbCandidatesSheetState extends State<_DbCandidatesSheet> {
     _scrollCtl.removeListener(_onScroll);
     _scrollCtl.dispose();
     _searchCtl.dispose();
+    _searchFocus.dispose();
     super.dispose();
   }
 
@@ -3246,6 +3249,7 @@ class _DbCandidatesSheetState extends State<_DbCandidatesSheet> {
             const SizedBox(height: 8),
             TextField(
               controller: _searchCtl,
+              focusNode: _searchFocus,
               decoration: InputDecoration(
                 hintText: context.l10n.irFinderFilterByLabelOrHex,
                 prefixIcon: const Icon(Icons.search_rounded),
@@ -3320,6 +3324,7 @@ class _DbCandidatesSheetState extends State<_DbCandidatesSheet> {
 
 class _DbPickerSheetState extends State<_DbPickerSheet> {
   final TextEditingController _searchCtl = TextEditingController();
+  final FocusNode _searchFocus = tvEscapeFocusNode();
   final ScrollController _scrollCtl = ScrollController();
   bool _loading = false;
   bool _exhausted = false;
@@ -3341,6 +3346,7 @@ class _DbPickerSheetState extends State<_DbPickerSheet> {
     _searchCtl.removeListener(_onSearch);
     _scrollCtl.removeListener(_onScroll);
     _searchCtl.dispose();
+    _searchFocus.dispose();
     _scrollCtl.dispose();
     super.dispose();
   }
@@ -3441,6 +3447,7 @@ class _DbPickerSheetState extends State<_DbPickerSheet> {
             const SizedBox(height: 10),
             TextField(
               controller: _searchCtl,
+              focusNode: _searchFocus,
               decoration: InputDecoration(
                 hintText: hint,
                 prefixIcon: const Icon(Icons.search_rounded),

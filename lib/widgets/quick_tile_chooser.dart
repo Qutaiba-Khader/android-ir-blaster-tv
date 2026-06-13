@@ -7,6 +7,7 @@ import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/utils/button_label.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
+import 'package:irblaster_controller/utils/tv_focus.dart';
 
 Future<QuickTilePick?> pickButtonForTile(
   BuildContext context, {
@@ -243,6 +244,13 @@ class _ButtonPickerSheet extends StatefulWidget {
 
 class _ButtonPickerSheetState extends State<_ButtonPickerSheet> {
   String _query = '';
+  late final FocusNode _searchFocus = tvEscapeFocusNode();
+
+  @override
+  void dispose() {
+    _searchFocus.dispose();
+    super.dispose();
+  }
 
   List<IRButton> get _filteredButtons {
     final q = _query.trim().toLowerCase();
@@ -283,6 +291,7 @@ class _ButtonPickerSheetState extends State<_ButtonPickerSheet> {
             ),
             const SizedBox(height: 10),
             TextField(
+              focusNode: _searchFocus,
               onChanged: (value) => setState(() => _query = value),
               decoration: InputDecoration(
                 hintText: context.l10n.searchCommands,

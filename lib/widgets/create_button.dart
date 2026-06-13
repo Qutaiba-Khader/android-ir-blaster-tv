@@ -11,6 +11,7 @@ import 'package:irblaster_controller/state/last_action_strip.dart';
 import 'package:irblaster_controller/utils/button_color_accessibility.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
+import 'package:irblaster_controller/utils/tv_focus.dart';
 import 'package:irblaster_controller/widgets/code_test.dart';
 import 'package:irblaster_controller/widgets/icon_picker.dart';
 import 'package:irblaster_controller/widgets/ir_waveform_view.dart';
@@ -1555,6 +1556,7 @@ class _CreateButtonState extends State<CreateButton> {
       showDragHandle: true,
       builder: (ctx) {
         final ctl = TextEditingController();
+        final searchFocus = tvEscapeFocusNode();
         final scrollCtl = ScrollController();
         bool attachedScrollListener = false;
         bool loading = false;
@@ -1635,6 +1637,7 @@ class _CreateButtonState extends State<CreateButton> {
                     const SizedBox(height: 8),
                     TextField(
                       controller: ctl,
+                      focusNode: searchFocus,
                       decoration: InputDecoration(
                         hintText: context.l10n.searchBrand,
                         prefixIcon: const Icon(Icons.search_rounded),
@@ -1698,6 +1701,7 @@ class _CreateButtonState extends State<CreateButton> {
       showDragHandle: true,
       builder: (ctx) {
         final ctl = TextEditingController();
+        final searchFocus = tvEscapeFocusNode();
         final scrollCtl = ScrollController();
         bool attachedScrollListener = false;
         bool loading = false;
@@ -1779,6 +1783,7 @@ class _CreateButtonState extends State<CreateButton> {
                     const SizedBox(height: 8),
                     TextField(
                       controller: ctl,
+                      focusNode: searchFocus,
                       decoration: InputDecoration(
                         hintText: context.l10n.searchModel,
                         prefixIcon: const Icon(Icons.search_rounded),

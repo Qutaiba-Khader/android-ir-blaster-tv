@@ -7,6 +7,7 @@ import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/utils/button_label.dart';
 import 'package:irblaster_controller/utils/remote.dart';
+import 'package:irblaster_controller/utils/tv_focus.dart';
 import 'package:uuid/uuid.dart';
 
 class ExistingRemoteButtonImportSheet extends StatefulWidget {
@@ -28,6 +29,7 @@ class _ExistingRemoteButtonImportSheetState
     extends State<ExistingRemoteButtonImportSheet> {
   static const _uuid = Uuid();
   final TextEditingController _searchCtl = TextEditingController();
+  final FocusNode _searchFocus = tvEscapeFocusNode();
   final Set<String> _selectedKeys = <String>{};
 
   List<Remote> _sources = <Remote>[];
@@ -47,6 +49,7 @@ class _ExistingRemoteButtonImportSheetState
   @override
   void dispose() {
     _searchCtl.dispose();
+    _searchFocus.dispose();
     super.dispose();
   }
 
@@ -290,6 +293,7 @@ class _ExistingRemoteButtonImportSheetState
               const SizedBox(height: 8),
               TextField(
                 controller: _searchCtl,
+                focusNode: _searchFocus,
                 decoration: InputDecoration(
                   labelText: context.l10n.searchButtons,
                   hintText: context.l10n.searchButtonsHint,
