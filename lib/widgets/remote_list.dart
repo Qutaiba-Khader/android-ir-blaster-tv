@@ -731,7 +731,7 @@ class _ReorderHintBanner extends StatelessWidget {
   }
 }
 
-class _RemoteCard extends StatelessWidget {
+class _RemoteCard extends StatefulWidget {
   final Remote remote;
   final Color color;
   final bool reorderMode;
@@ -750,23 +750,37 @@ class _RemoteCard extends StatelessWidget {
   });
 
   @override
+  State<_RemoteCard> createState() => _RemoteCardState();
+}
+
+class _RemoteCardState extends State<_RemoteCard> {
+  bool _focused = false;
+
+  @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
+    final Remote remote = widget.remote;
+    final bool reorderMode = widget.reorderMode;
     final int count = remote.buttons.length;
     return Card(
-      color: color,
+      color: widget.color,
       elevation: 0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
-        side: reorderMode
-            ? BorderSide(color: cs.primary.withValues(alpha: 0.35))
-            : BorderSide.none,
+        // Bold primary ring when D-pad focused on a TV.
+        side: _focused
+            ? BorderSide(color: cs.primary, width: 3)
+            : (reorderMode
+                ? BorderSide(color: cs.primary.withValues(alpha: 0.35))
+                : BorderSide.none),
       ),
       clipBehavior: Clip.antiAlias,
       child: InkWell(
-        onTap: reorderMode ? null : onTap,
-        onLongPress: reorderMode ? null : onLongPress,
+        onTap: reorderMode ? null : widget.onTap,
+        onLongPress: reorderMode ? null : widget.onLongPress,
+        onFocusChange: (f) => setState(() => _focused = f),
+        focusColor: cs.primary.withValues(alpha: 0.16),
         borderRadius: BorderRadius.circular(16),
         child: Padding(
           padding: const EdgeInsets.all(14),
@@ -799,7 +813,7 @@ class _RemoteCard extends StatelessWidget {
                       height: 36,
                       child: IconButton(
                         tooltip: context.l10n.more,
-                        onPressed: onOverflow,
+                        onPressed: widget.onOverflow,
                         icon: const Icon(Icons.more_vert_rounded, size: 20),
                         padding: EdgeInsets.zero,
                         constraints: const BoxConstraints(),

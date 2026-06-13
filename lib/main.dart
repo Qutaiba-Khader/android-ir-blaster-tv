@@ -70,6 +70,46 @@ Future<void> main() async {
   });
 }
 
+/// Android TV-tuned theme: clearly visible D-pad focus (text fields get a thick
+/// primary border, everything else a strong focus tint), a styled leanback nav
+/// rail, bigger slider hit feedback, and roomier spacing for couch viewing.
+ThemeData tvTheme(ColorScheme scheme) {
+  final base = ThemeData(
+    useMaterial3: true,
+    colorScheme: scheme,
+    brightness: scheme.brightness,
+  );
+  return base.copyWith(
+    focusColor: scheme.primary.withValues(alpha: 0.24),
+    visualDensity: VisualDensity.standard,
+    inputDecorationTheme: base.inputDecorationTheme.copyWith(
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: BorderSide(color: scheme.primary, width: 3),
+      ),
+    ),
+    navigationRailTheme: NavigationRailThemeData(
+      backgroundColor: scheme.surfaceContainer,
+      indicatorColor: scheme.primaryContainer,
+      selectedIconTheme: IconThemeData(color: scheme.onPrimaryContainer, size: 28),
+      unselectedIconTheme: IconThemeData(color: scheme.onSurfaceVariant, size: 26),
+      selectedLabelTextStyle: TextStyle(
+        color: scheme.onSurface,
+        fontWeight: FontWeight.w700,
+        fontSize: 13,
+      ),
+      unselectedLabelTextStyle: TextStyle(
+        color: scheme.onSurfaceVariant,
+        fontSize: 13,
+      ),
+    ),
+    sliderTheme: base.sliderTheme.copyWith(
+      overlayColor: scheme.primary.withValues(alpha: 0.24),
+      overlayShape: const RoundSliderOverlayShape(overlayRadius: 22),
+    ),
+  );
+}
+
 final GlobalKey<NavigatorState> _navKey = GlobalKey<NavigatorState>();
 
 const MethodChannel _controlChannel =
@@ -278,17 +318,8 @@ class _App extends StatelessWidget {
                     .resolveActiveLocale(supportedLocales.toList(), locale);
               },
               themeMode: AppThemeController.instance.mode,
-              theme: ThemeData(
-                  useMaterial3: true,
-                  colorScheme: lightScheme,
-                  // Visible D-pad/keyboard focus tint for Android TV navigation.
-                  focusColor: lightScheme.primary.withValues(alpha: 0.20),
-                  brightness: Brightness.light),
-              darkTheme: ThemeData(
-                  useMaterial3: true,
-                  colorScheme: darkScheme,
-                  focusColor: darkScheme.primary.withValues(alpha: 0.22),
-                  brightness: Brightness.dark),
+              theme: tvTheme(lightScheme),
+              darkTheme: tvTheme(darkScheme),
               home: const _BootstrapScreen(),
             );
           },

@@ -583,41 +583,62 @@ class _HomeShellState extends State<HomeShell> {
 
   @override
   Widget build(BuildContext context) {
+    // Android TV: a left navigation rail (leanback side nav) instead of a phone-style
+    // bottom bar. The rail is D-pad-reachable by pressing Left from the content.
     return Scaffold(
-      body: Column(
-        children: [
-          _hardwareBanner(context),
-          Expanded(
-            child: IndexedStack(index: _index, children: _pages),
-          ),
-        ],
+      body: SafeArea(
+        child: Row(
+          children: [
+            _buildNavRail(context),
+            const VerticalDivider(width: 1, thickness: 1),
+            Expanded(
+              child: Column(
+                children: [
+                  _hardwareBanner(context),
+                  Expanded(
+                    child: IndexedStack(index: _index, children: _pages),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: _index,
-        onDestinationSelected: (i) => setState(() => _index = i),
-        destinations: <NavigationDestination>[
-          NavigationDestination(
-            icon: Icon(Icons.settings_remote_outlined),
-            selectedIcon: Icon(Icons.settings_remote),
-            label: context.l10n.remotesNavLabel,
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.playlist_play_rounded),
-            selectedIcon: Icon(Icons.playlist_play),
-            label: context.l10n.macrosNavLabel,
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.radar_outlined),
-            selectedIcon: Icon(Icons.radar),
-            label: context.l10n.signalTesterNavLabel,
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.settings_outlined),
-            selectedIcon: Icon(Icons.settings),
-            label: context.l10n.settingsNavLabel,
-          ),
-        ],
-      ),
+    );
+  }
+
+  Widget _buildNavRail(BuildContext context) {
+    return NavigationRail(
+      selectedIndex: _index,
+      onDestinationSelected: (i) {
+        Haptics.selectionClick();
+        setState(() => _index = i);
+      },
+      labelType: NavigationRailLabelType.all,
+      groupAlignment: -0.9,
+      minWidth: 88,
+      destinations: <NavigationRailDestination>[
+        NavigationRailDestination(
+          icon: const Icon(Icons.settings_remote_outlined),
+          selectedIcon: const Icon(Icons.settings_remote),
+          label: Text(context.l10n.remotesNavLabel),
+        ),
+        NavigationRailDestination(
+          icon: const Icon(Icons.playlist_play_rounded),
+          selectedIcon: const Icon(Icons.playlist_play),
+          label: Text(context.l10n.macrosNavLabel),
+        ),
+        NavigationRailDestination(
+          icon: const Icon(Icons.radar_outlined),
+          selectedIcon: const Icon(Icons.radar),
+          label: Text(context.l10n.signalTesterNavLabel),
+        ),
+        NavigationRailDestination(
+          icon: const Icon(Icons.settings_outlined),
+          selectedIcon: const Icon(Icons.settings),
+          label: Text(context.l10n.settingsNavLabel),
+        ),
+      ],
     );
   }
 }

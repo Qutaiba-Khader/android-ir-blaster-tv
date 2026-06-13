@@ -554,8 +554,9 @@ Future<Map<String, dynamic>?> buildMacroShortcutPayload(
   String? fallbackButtonId;
 
   void addDelay(int ms) {
-    if (current == null || ms <= 0) return;
-    current!['delayAfterMs'] = (current!['delayAfterMs'] as int) + ms;
+    final cur = current;
+    if (cur == null || ms <= 0) return;
+    cur['delayAfterMs'] = (cur['delayAfterMs'] as int) + ms;
   }
 
   for (final step in macro.steps) {
