@@ -1,8 +1,8 @@
 /* lib/ir_finder/irblaster_db.dart */
+import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
-import 'dart:typed_data';
 
-import 'package:flutter/services.dart' show rootBundle;
 import 'package:irblaster_controller/ir_finder/ir_finder_models.dart';
 import 'package:path/path.dart' as p;
 import 'package:sqflite/sqflite.dart';
@@ -11,8 +11,15 @@ class IrBlasterDb {
   IrBlasterDb._();
   static final IrBlasterDb instance = IrBlasterDb._();
 
-  static const String _assetDbPath = 'assets/db/irblaster.sqlite';
+  /// The IR-code DB is NOT bundled in the APK (keeps it small + the build fast).
+  /// It is downloaded on first use from this manifest's `url` and cached in the
+  /// app's databases dir; queries then run locally.
+  static const String dbManifestUrl =
+      'https://rclone-public.websnake.org/storage/irdb/version.json';
   static const String _dbFileName = 'irblaster.sqlite';
+
+  /// True while the DB is being fetched — UIs show a "downloading codes…" state.
+  bool downloading = false;
 
   Database? _db;
   Future<void>? _initFuture;
@@ -24,7 +31,29 @@ class IrBlasterDb {
 
   Future<void> ensureInitialized() {
     _initFuture ??= _open();
-    return _initFuture!;
+    return _initFuture!.catchError((Object e) {
+      // Let the next call retry (e.g. after the network comes back).
+      _initFuture = null;
+      throw e;
+    });
+  }
+
+  /// The active DB's date stamp (db_meta.date), e.g. '2026-06-18'. Reflects the
+  /// bundled DB or a background-applied update. Null if unavailable.
+  Future<String?> dbDate() async {
+    try {
+      if (_db == null) {
+        // Don't trigger a download just to read the date — only read if cached.
+        final dir = await getDatabasesPath();
+        final f = File(p.join(dir, _dbFileName));
+        if (!(await f.exists() && await f.length() > 1000000)) return null;
+      }
+      await ensureInitialized();
+      final rows = await _requireDb()
+          .rawQuery("SELECT value FROM db_meta WHERE key='date' LIMIT 1;");
+      if (rows.isNotEmpty) return rows.first['value'] as String?;
+    } catch (_) {}
+    return null;
   }
 
   Future<void> _open() async {
@@ -33,20 +62,27 @@ class IrBlasterDb {
     final String dbDir = await getDatabasesPath();
     final String dbPath = p.join(dbDir, _dbFileName);
 
-    final bool exists = await databaseExists(dbPath);
-    if (!exists) {
-      await _copyAssetTo(dbPath);
-    } else {
-      final File f = File(dbPath);
-      if (await f.exists()) {
-        final int len = await f.length();
-        if (len <= 0) {
-          await _copyAssetTo(dbPath);
-        }
+    // Apply a background-downloaded update (staged by IrDbUpdater) before opening.
+    final File pending = File(p.join(dbDir, 'irblaster.pending.sqlite'));
+    if (await pending.exists() && await pending.length() > 1000000) {
+      try {
+        await pending.rename(dbPath);
+      } catch (_) {
+        try {
+          await pending.copy(dbPath);
+          await pending.delete();
+        } catch (_) {}
       }
     }
 
-    // Open writable so we can create indexes (no data mutations; just performance indexes).
+    final File dbFile = File(dbPath);
+    final bool ok = await dbFile.exists() && await dbFile.length() > 1000000;
+    if (!ok) {
+      // Not cached yet → download it (the hosted DB ships fully indexed).
+      await _downloadDb(dbPath);
+    }
+
+    // Open writable so the perf-tuning PRAGMAs apply (indexes already exist).
     _db = await openDatabase(
       dbPath,
       readOnly: false,
@@ -56,12 +92,49 @@ class IrBlasterDb {
     await _ensurePerformanceTuning();
   }
 
-  Future<void> _copyAssetTo(String targetPath) async {
-    final ByteData data = await rootBundle.load(_assetDbPath);
-    final bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
-    final File outFile = File(targetPath);
-    await outFile.parent.create(recursive: true);
-    await outFile.writeAsBytes(bytes, flush: true);
+  /// Download the cached-once DB from the hosted manifest. Throws on failure so
+  /// callers (the finder / pickers) can show a retry state; never leaves a
+  /// partial file in place.
+  Future<void> _downloadDb(String targetPath) async {
+    downloading = true;
+    final client = HttpClient()..connectionTimeout = const Duration(seconds: 20);
+    try {
+      final mReq = await client.getUrl(Uri.parse(dbManifestUrl));
+      final mResp = await mReq.close().timeout(const Duration(seconds: 20));
+      if (mResp.statusCode != 200) {
+        throw StateError('manifest ${mResp.statusCode}');
+      }
+      final m = json.decode(await mResp.transform(utf8.decoder).join())
+          as Map<String, dynamic>;
+      final String url = (m['url'] ?? '').toString();
+      final int? size =
+          m['size'] is int ? m['size'] as int : int.tryParse('${m['size']}');
+      if (url.isEmpty) throw StateError('no db url in manifest');
+
+      final File tmp = File('$targetPath.part');
+      await tmp.parent.create(recursive: true);
+      if (await tmp.exists()) await tmp.delete();
+
+      final dReq = await client.getUrl(Uri.parse(url));
+      final dResp = await dReq.close().timeout(const Duration(minutes: 10));
+      if (dResp.statusCode != 200) {
+        throw StateError('download ${dResp.statusCode}');
+      }
+      final sink = tmp.openWrite();
+      await dResp.pipe(sink); // closes the sink
+
+      final int len = await tmp.length();
+      if (len < 1000000 || (size != null && len != size)) {
+        await tmp.delete();
+        throw StateError('bad download ($len/${size ?? '?'})');
+      }
+      final File out = File(targetPath);
+      if (await out.exists()) await out.delete();
+      await tmp.rename(targetPath);
+    } finally {
+      client.close(force: true);
+      downloading = false;
+    }
   }
 
   Database _requireDb() {
@@ -261,11 +334,14 @@ class IrBlasterDb {
 
     final String whereSql =
         where.isEmpty ? '' : 'WHERE ${where.join(' AND ')}';
+    // Only join keys when a protocol filter needs k.protocol. Without it the
+    // join over 413k keys makes the live brand search slow on TV (78ms→14ms).
+    final String joinSql = pf != null ? 'JOIN keys k ON k.id = m.id' : '';
 
     final sql = '''
       SELECT DISTINCT m.brand AS name
       FROM models m
-      JOIN keys k ON k.id = m.id
+      $joinSql
       $whereSql
       ORDER BY name COLLATE NOCASE ASC
       LIMIT ? OFFSET ?

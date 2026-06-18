@@ -20,7 +20,7 @@ import 'package:irblaster_controller/l10n/app_localizations.dart';
 import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/utils/macros_io.dart';
-import 'package:irblaster_controller/widgets/home_shell.dart';
+import 'package:irblaster_controller/cs/screens/cs_shell.dart';
 import 'package:irblaster_controller/widgets/quick_tile_chooser.dart';
 import 'package:irblaster_controller/state/quick_settings_prefs.dart';
 import 'package:irblaster_controller/state/home_button_widget_prefs.dart';
@@ -397,7 +397,7 @@ class _BootstrapScreenState extends State<_BootstrapScreen> {
             onRetry: () => setState(() => _future = _bootstrap()),
           );
         }
-        return const HomeShell();
+        return const CsShell(); // Control Surface redesign
       },
     );
   }

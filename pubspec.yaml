@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 3.3.0+38
+version: 0.1.0+39
 
 environment:
   sdk: '>=3.2.3 <4.0.0'
@@ -36,6 +36,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  material_symbols_icons: ^4.2785.1   # Material Symbols Rounded (Control Surface design)
   dynamic_color: ^1.8.1
   file_picker: ^10.3.8
   file_selector: ^1.1.0
@@ -55,6 +56,7 @@ dependencies:
   url_launcher: ^6.3.2
   uuid: ^4.5.2
   xml: ^6.5.0
+  dpad: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -93,7 +95,6 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/db/irblaster.sqlite
     - assets/images/logo.png
     - assets/ON.png
     - assets/OFF.png
@@ -151,3 +152,14 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+  # Control Surface design fonts (bundled locally — offline, no runtime fetch)
+  fonts:
+    - family: Sora
+      fonts:
+        - asset: assets/fonts/Sora.ttf
+    - family: Space Mono
+      fonts:
+        - asset: assets/fonts/SpaceMono-Regular.ttf
+        - asset: assets/fonts/SpaceMono-Bold.ttf
+          weight: 700
